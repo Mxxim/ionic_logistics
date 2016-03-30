@@ -1,0 +1,44 @@
+<ion-view view-title="个人中心">
+  <ion-content class="user_home bg-e4 has-header">
+    <ion-list>
+      <!--<ion-item ng-if="!userInfo" href="#/tab/login">-->
+        <div style="text-align: center;">
+          <img src="../www/img/commentfailure.png">
+          <div style="font-size: 13px;color: #aaa">立即登录</div>
+        </div>
+      <!--</ion-item>-->
+      <!--<ion-item class="item-icon-right" ng-if="userInfo" href="#/tab/user/personal">-->
+        <!--<img src="../www/img/commentfailure.png">-->
+        <!--<div class="ft13">{{userInfo.username}}</div>-->
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+      <!--</ion-item>-->
+    </ion-list>
+
+    <div class="button-bar bar-light">
+
+      <a class="button  icon-left" ng-click="collectList()"><i class="icon ion-android-star-outline"></i>收藏</a>
+      <a class="button  icon-left" ng-click="messageList()"><i class="icon ion-email"></i> 消息
+                                <span ng-if="messagesCount" class="badge badge-assertive messagesCount">
+                                        {{messagesCount > 9 ? 'N' : messagesCount}}
+                                </span>
+      </a>
+    </div>
+    <br>
+    <ion-list>
+      <ion-toggle>显示文章图片</ion-toggle>
+      <ion-item class="item-divider">关于</ion-item>
+      <ion-item>
+        当前版本
+        <span class="item-note">v2.2</span>
+      </ion-item>
+      <ion-item>
+        意见反馈
+        <span class="item-note">376877431@qq.com</span>
+      </ion-item>
+      <ion-item class="item-icon-right" href="#/tab/demo">
+        一些demo~~~
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
