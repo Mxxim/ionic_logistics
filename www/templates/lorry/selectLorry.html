@@ -1,0 +1,25 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <button class="button  back-button button-icon ion-ios-arrow-back button-clear" ng-click="closePublishModal()">发布车源</button>
+    <h1 class="title">选择车辆</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+
+      <ion-radio class="item item-thumbnail-left" ng-model="choice" ng-value="'A'">
+          <img src="../www/img/lorry.jpg">
+          <h2 class="title">粤A5377&emsp;平板车</h2>
+          <p>17.5米&nbsp;载重50吨&emsp;15m</p>
+      </ion-radio>
+      <ion-radio class="item item-thumbnail-left" ng-model="choice" ng-value="'B'">
+        <img src="../www/img/lorry.jpg">
+        <h2 class="title">粤A5377&emsp;平板车</h2>
+        <p>17.5米&nbsp;载重50吨&emsp;15m</p>
+      </ion-radio>
+    </ion-list>
+    <div class="padding">
+      <button class="button button-block button-positive">确定</button>
+    </div>
+  </ion-content>
+</ion-modal-view>
+

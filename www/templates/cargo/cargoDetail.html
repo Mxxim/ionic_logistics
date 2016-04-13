@@ -1,0 +1,57 @@
+<ion-view hide-tabs view-title="货源详情" hide-back-button="false">
+
+  <ion-nav-title>货源详情</ion-nav-title>
+  <!--<ion-nav-buttons side="left">-->
+  <!--<button class="button  back-button button-icon ion-ios-arrow-back button-clear" ng-click="$ionicGoBack()">-->
+  <!--返回-->
+  <!--</button>-->
+  <!--</ion-nav-buttons>-->
+
+  <ion-content>
+    <!-- 菊花加载 -->
+    <div class="isLoading" ng-if="showloading">
+      <ion-spinner icon="ios"></ion-spinner>
+    </div>
+    <div ng-if="!showloading">
+      <ion-list class="item_detail">
+        <ion-item class="detail_addr text-center">
+            <span>湛江市麻章区湖光镇</span>
+            <i class="iconfont positive" style="font-size:20px">&nbsp;&#xe60e;&nbsp;</i>
+            <span>广州市越秀区22</span>
+        </ion-item>
+        <ion-item>
+          <p><i class="iconfont positive" style="font-size:20px;">&#xe609;&nbsp;</i>您当前距离装货地<span class="assertive">1.2公里</span></p>
+          <p><i class="iconfont positive" style="font-size:20px;">&#xe611;&nbsp;</i>装货地距离卸货地<span class="assertive">800.2公里</span></p>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">货品信息</span>
+          <span class="detail_content">饮料  10吨</span>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">需要车型</span>
+          <span class="detail_content">17.5米  平板车</span>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">付款方式</span>
+          <span class="detail_content">货到付款</span>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">备注</span>
+          <span class="detail_content">无</span>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">联系人</span>
+          <span class="detail_content">马女士</span>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">运费</span>
+          <span class="detail_price">￥1088</span>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+  <!--<div class="padding">-->
+    <button class="button button-block button-assertive button_bottom"  ng-click="">拨通电话</button>
+    <!--<button class="button button-block button-assertive button_bottom"  ng-click="">我要抢单</button>-->
+  <!--</div>-->
+</ion-view>

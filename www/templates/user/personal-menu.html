@@ -1,0 +1,63 @@
+<!-- ion side menus is a parent element and hava at lest 2 child elements -->
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu side="left">
+    <!--<ion-header-bar class="has-tabs-top" align-title="left">-->
+        <!--<h1 class="title"><img src="img/ben.png" alt="" width="35">Flora</h1>-->
+    <!--</ion-header-bar>-->
+    <ion-content style="box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)">
+      <br>
+      <ion-list>
+        <ion-item  menu-toggle class="item-avatar" style="border:none" href="">
+          <img src="img/ben.png" alt="" width="35">
+          <h2 class="title">sammy</h2>
+          <p style="color:#cccccc">未认证</p>
+        </ion-item><br>
+        <ion-item  menu-toggle class="item-icon-left" href="">
+          <i class="icon ion-ios-box assertive"></i>
+          当前货源
+        </ion-item><br>
+        <ion-item menu-close class="item-icon-left" href="">
+          <i class="icon ion-ios-person positive"></i>
+          我的熟客
+        </ion-item>
+        <ion-item  menu-toggle class="item-icon-left" href="">
+          <i class="icon ion-ios-list royal"></i>
+          我的运单
+        </ion-item><br>
+        <ion-item  menu-toggle class="item-icon-left" href="#/menu/lorryInfo">
+          <i class="iconfont icon_menu calm">&#xe606;</i>
+
+          我的车源
+        </ion-item>
+        <ion-item  menu-toggle class="item-icon-left" href="#/menu/lorry">
+          <i class="iconfont icon_menu positive">&#xe605;</i>
+          我的车辆
+        </ion-item>
+        <ion-item  menu-toggle class="item-icon-left" href="">
+          <i class="icon ion-chatbox-working energized"></i>
+          我的评价
+        </ion-item><br>
+        <!--<ion-item menu-close href="">我的广场</ion-item>-->
+        <ion-item  menu-toggle class="item-icon-left" href="">
+          <i class="icon ion-gear-b positive"></i>
+          设置
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+  <ion-side-menu-content>
+    <!-- main content usually <ion-nav-view> -->
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  <!-- left menu -->
+
+</ion-side-menus>
+

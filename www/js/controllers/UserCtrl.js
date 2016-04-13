@@ -2,10 +2,22 @@
  * Created by xiaomin on 2016/3/30.
  */
 
-angular.module('starter.userCtrl', [])
+//angular.module('starter.userCtrl', [])
+//
+//  .controller('UserCtrl', function($scope) {
+//
+//
+//    $scope.hello = "hello Sammy";
+//  })
 
-  .controller('UserCtrl', function($scope) {
+define([],function(){
+  'use strict';
+  function userCtrl($scope){
+      console.log("toAdd");
+    $scope.$on('$destroy',function(){
+      console.log("------userCtrl销毁页面-------");
+    })
+  }
 
-
-    $scope.hello = "hello Sammy";
-  })
+  return userCtrl;
+});

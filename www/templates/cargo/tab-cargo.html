@@ -1,10 +1,126 @@
 <ion-view view-title="找货源">
-  <ion-content class="has-header">
+  <!--<ion-nav-buttons side="left">-->
+    <!--<button class="button button-icon icon ion-navicon" menu-toggle="left"></button>-->
+  <!--</ion-nav-buttons>-->
+  <!-- 搜索导航start -->
+  <div class="bar bar-subheader sub_header_wrap">
+    <div class="button-bar">
+      <a class="button button-clear" style="overflow: visible">
+        出发地&nbsp;<i class="ion-arrow-down-b"></i>
+        <div class="sub_header_div">
+          <ion-content scroll="false" padding="true" class="sub_header_div_c c_one">
+            <ion-scroll class="sub_header_div_c_s" direction="y" scrollbar-y="true">
+              <ion-list class="b_list">
+                <ion-item>广东省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+                <ion-item>湖南省</ion-item>
+              </ion-list>
+            </ion-scroll>
+          </ion-content>
+          <ion-content scroll="false" padding="true" class="sub_header_div_c c_two">
+            <ion-scroll class="sub_header_div_c_s" direction="y" scrollbar-y="true">
+              <ion-list class="b_list">
+                <ion-item>广州市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+                <ion-item>汕头市</ion-item>
+              </ion-list>
+            </ion-scroll>
+          </ion-content>
+          <ion-content scroll="false" padding="true" class="sub_header_div_c c_three">
+            <ion-scroll class="sub_header_div_c_s" direction="y" scrollbar-y="true">
+              <ion-list class="b_list">
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+                <ion-item>潮阳区</ion-item>
+              </ion-list>
+            </ion-scroll>
+          </ion-content>
+        </div>
+      </a>
+      <a class="button button-clear" style="overflow: visible">
+        目的地&nbsp;<i class="ion-arrow-down-b"></i>
+      </a>
+      <a class="button button-clear">时间&nbsp;<i class="ion-arrow-down-b"></i></a>
+      <a class="button button-clear">车型&nbsp;<i class="ion-arrow-down-b"></i></a>
+    </div>
+    <!--</ion-scroll>-->
+  </div>
+  <!-- 搜索导航end -->
+  <!-- ion-content start -->
+  <ion-content class="has-header" style="top: 88px;z-index:1">
+    <!-- 轮播图start -->
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" class="home-slide">
+      <ion-slide>
+        <img src="../www/img/slide3.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../www/img/slide1.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../www/img/slide2.jpg">
+      </ion-slide>
+    </ion-slide-box>
+    <!-- 轮播图end -->
+    <!-- 货源列表start -->
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        {{hello}}
-......................
+      <ion-item class="item-remove-animate item-avatar item-icon-right" href="#/menu/tabs/cargo/1">
+        <img src="../www/img/ben.png">
+        <p class="item_name">马女士</p>
+        <div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">
+          &#xe60a;</i><span>湛江市麻章区</span></div>
+        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>广州市越秀区</span></div>
+        <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;2016-04-05早上装
+        </p>
+        <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;饮料&nbsp;25吨&emsp;要&nbsp;17.5米&nbsp;平板车
+        </p>
+        <i class="icon iconfont" style="color: orangered">&#xe60c;</i>
+      </ion-item>
+      <ion-item class="item-remove-animate item-avatar item-icon-right">
+        <img src="../www/img/ben.png">
+        <p class="item_name">马女士</p>
+        <div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">
+          &#xe60a;</i><span>湛江市麻章区</span></div>
+        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>广州市越秀区</span></div>
+        <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;2016-04-05早上装
+        </p>
+        <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;饮料&nbsp;25吨&emsp;要&nbsp;17.5米&nbsp;平板车
+        </p>
+        <i class="icon iconfont" style="color: orangered">&#xe60c;</i>
+      </ion-item>
+      <ion-item class="item-remove-animate item-avatar item-icon-right">
+        <img src="../www/img/ben.png">
+        <p class="item_name">马女士</p>
+        <div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">
+          &#xe60a;</i><span>湛江市麻章区</span></div>
+        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>广州市越秀区</span></div>
+        <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;2016-04-05早上装
+        </p>
+        <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;饮料&nbsp;25吨&emsp;要&nbsp;17.5米&nbsp;平板车
+        </p>
+        <i class="icon iconfont" style="color: orangered">&#xe60c;</i>
       </ion-item>
     </ion-list>
+    <!-- 货源列表end -->
+    <ion-infinite-scroll on-infinite="loadMore()" ng-if="hasNextPage()"></ion-infinite-scroll>
   </ion-content>
+  <!-- ion-content end -->
 </ion-view>

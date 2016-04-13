@@ -1,1 +1,182 @@
 /* Empty. Add your own CSS if you like */
+
+@font-face {font-family: 'iconfont';
+
+  src: url('./font/iconfont.eot'); /* IE9*/
+
+  src: url('./font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+
+  url('./font/iconfont.woff') format('woff'), /* chrome、firefox */
+
+  url('./font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+
+  url('./font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+
+}
+.iconfont{
+  font-family:"iconfont";
+  /*font-size:32px;*/
+  font-style:normal;
+  /*display:flex;*/
+  align-items: center;
+  /*position:absolute;*/
+  /*top:0;*/
+  height:100%;
+}
+.icon_menu{
+  font-size:32px;
+  display:flex;
+  position:absolute;
+  left:11px;
+  top:0;
+}
+
+
+/* 首页轮播 */
+.home-slide ion-slide,.home-slide ion-slide img{
+  height: 180px;
+  width:100%;
+}
+
+.home-slide .slider-pager .slider-pager-page{
+  font-size:8px;
+}
+
+.home-slide .slider-pager{
+  bottom:8px;
+}
+
+/* 找货源二级导航 */
+.sub_header_wrap .button-bar .button.button-clear{
+
+  font-size: 1rem;
+  line-height: 44px;
+}
+.bar-subheader{
+  border-bottom: none;
+}
+/* 级联下拉菜单/搜索 */
+.sub_header_wrap{
+
+  background: white;z-index:2;padding:0;
+}
+.sub_header_div{
+  position:absolute;left:0;top:44px;width:410%;height: 200px;text-align:left;background:#E8E4E4;padding:10px;margin-top: -5px;margin-left:-3px;
+  display: none;
+}
+.sub_header_div_c{
+  width:30%;height:100%;top:0;
+}
+.c_two{
+  left:30%
+}
+.c_three{
+  left:60%;
+}
+.sub_header_div_c_s{
+  overflow:hidden;width:100%;height:100%;float:left;top:0;position:static
+}
+.b_list .item{
+  border:none;
+  border-bottom:1px solid #ccc;
+  font-size:inherit;
+  padding:0;
+  background-color: inherit;
+  color:inherit;
+}
+
+/* 货源列表 */
+.item_name{
+  position: absolute;left:15px;top:60px;
+}
+
+/* 货源详情 */
+.item_detail .item>span{
+  display: inline-block;
+  font-size:15px;
+  color:#666
+}
+.detail_addr span{
+  width:7rem;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight:bold;
+  font-size:16px;
+}
+.item_detail span.detail_title{
+  margin-right: 15px;
+}
+.item_detail span.detail_content{
+  color:black;
+}
+.item_detail span.detail_price{
+  font-size:2rem;font-weight: bold;color:#EF473A;
+}
+.button.button_bottom{
+  position: absolute;bottom: 0;margin-bottom:0;width:100%;
+}
+/* 表单 */
+.item-floating-label .input-label.has-input{
+  opacity:0.7;
+}
+/*ion-content{*/
+  /*background-color: #e4e4e4;*/
+/*}*/
+
+/* 图片展示 */
+.pic_list_min{
+  border-top:none;
+}
+.img_wrap{
+  float: left;
+  margin: 10px 2%;
+  padding-bottom: 29%;
+  width: 29%;
+  height: 0;
+  /*overflow: hidden;*/
+  position: relative;
+}
+.pic_list_min img{
+  width:100%;
+  /*float: left;*/
+  object-fit: cover;
+}
+.layer{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  display:table;
+  z-index:3;
+}
+.layer .layer_text{
+  font-weight: bold;display:table-cell;text-align:center;vertical-align: middle;
+  color:#CEC7C7;
+}
+.layer_text span{
+  color: #0c60ee;
+}
+.img_container{
+  width:100%;
+  padding-bottom:100%;
+  height:0;
+  overflow: hidden;
+  position:relative;
+  z-index:2;
+}
+
+/*表单*/
+.add_form .item{
+  font-size:14px
+}
+.add_form .item .add_def{
+  color:#A7A3A3;
+}
+#loc_province,#loc_city,#loc_s,#sel_date{
+  border:none;
+  background: none;
+}
+#loc_province,#loc_city,#loc_s{
+  width:33%;
+}

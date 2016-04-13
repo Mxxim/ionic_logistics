@@ -1,0 +1,197 @@
+<ion-view view-title="添加车辆">
+
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-title>添加车辆</ion-nav-title>
+    <ion-nav-buttons side="left">
+      <button class="button  back-button button-icon ion-ios-arrow-back button-clear" ng-click="$ionicGoBack()">我的车辆</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+
+  <ion-content class="bg-e4 has-header">
+    <form>
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label positive"><i class="iconfont">&#xe615;&nbsp;</i>车牌号</span>
+          <input type="text" placeholder="输入车牌号">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label positive"><i class="iconfont">&#xe617;&nbsp;</i>载重(吨)</span>
+          <input type="text" placeholder="输入载重(吨)">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label positive"><i class="iconfont">&#xe602;&nbsp;</i>车长&车型</span>
+          <input type="text" placeholder="输入车长&车型">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label positive"><i class="iconfont">&#xe614;&nbsp;</i>载货空间M<sup>3</sup></span>
+          <input type="text" placeholder="输入载货空间(立方米)">
+        </label>
+        <div class="item padding-left pic_list_min">
+          <p style="padding-top:10px;color:#A7A3A3"><i class="iconfont">&#xe618;&nbsp;</i>漂亮的车辆照片更容易吸引货主！</p>
+          <div class="img_wrap" id="carHead" ng-click="showActionSheet(1)">
+            <div class="layer">
+              <p class="layer_text">车头照<br><span>点击上传</span></p>
+            </div>
+            <div class="img_container">
+              <img ng-if="carHead" ng-src="{{carHead}}" style="display: inline-block;"/>
+              <img ng-if="!carHead" ng-src="../www/img/carHead.jpg" style="display: inline-block;"/>
+            </div>
+          </div>
+          <div class="img_wrap" id="car45" ng-click="showActionSheet(2)">
+            <div class="layer">
+              <p class="layer_text">45°照<br><span>点击上传</span></p>
+            </div>
+            <div class="img_container">
+              <img ng-if="car45" ng-src="{{car45}}" style="display: inline-block;"/>
+              <img ng-if="!car45" ng-src="../www/img/car45.jpg" style="display: inline-block;"/>
+            </div>
+          </div>
+          <div class="img_wrap" id="carTail">
+            <div class="layer" ng-click="showActionSheet(3)">
+              <p class="layer_text">车尾照<br><span>点击上传</span></p>
+            </div>
+            <div class="img_container">
+              <img ng-if="carTail" ng-src="{{carTail}}" style="display: inline-block;"/>
+              <img ng-if="!carTail" ng-src="../www/img/carTail.jpg" style="display: inline-block;"/>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div style="font-size:14px;color:#A7A3A3"><i class="iconfont">&#xe615;&nbsp;</i>车辆行驶证照片</div>
+          <div class="img_wrap" id="carCard" style="float: none">
+            <div class="layer" ng-click="showActionSheet(4)">
+              <p class="layer_text">驾驶证<br><span>点击上传</span></p>
+            </div>
+            <div class="img_container">
+              <img width="100%" ng-if="carCard" ng-src="{{carCard}}" style="display: inline-block;"/>
+              <img width="100%" ng-if="!carCard" ng-src="../www/img/carCard.jpg" style="display: inline-block;"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!--<form>-->
+      <!--<div class="list">-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe615;&nbsp;</i>车牌号</span>-->
+          <!--<input type="text" placeholder="输入车牌号">-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe617;&nbsp;</i>载重(吨)</span>-->
+          <!--<input type="text" placeholder="输入载重(吨)">-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe602;&nbsp;</i>车长&车型</span>-->
+          <!--<input type="text" placeholder="输入车长&车型">-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe614;&nbsp;</i>载货空间M<sup>3</sup></span>-->
+          <!--<input type="text" placeholder="输入载货空间(立方米)">-->
+        <!--</label>-->
+        <!--<div class="item padding-left pic_list_min">-->
+          <!--<p style="padding-top:10px;color:#A7A3A3"><i class="iconfont">&#xe618;&nbsp;</i>漂亮的车辆照片更容易吸引货主！</p>-->
+          <!--<div class="img_wrap" show-image="carHead">-->
+            <!--<div class="layer" ng-click="showActionSheet()">-->
+              <!--<p class="layer_text">{{carHead.typeName}}<br><span>点击上传</span></p>-->
+            <!--</div>-->
+            <!--<div class="img_container"><img class="" src="{{carHead.url}}" style="display: inline-block;"/></div>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;<show-image theImage="carHead"></show-image>&ndash;&gt;-->
+          <!--<div class="img_wrap" show-image="car45">-->
+            <!--<div class="layer" ng-click="showActionSheet()">-->
+              <!--<p class="layer_text">{{car45.typeName}}<br><span>点击上传</span></p>-->
+            <!--</div>-->
+            <!--<div class="img_container"><img class="" src="{{car45.url}}" style="display: inline-block;"/></div>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;<show-image theImage="car45"></show-image>&ndash;&gt;-->
+          <!--<div class="img_wrap" show-image="carTail">-->
+            <!--<div class="layer" ng-click="showActionSheet()">-->
+              <!--<p class="layer_text">{{carTail.typeName}}<br><span>点击上传</span></p>-->
+            <!--</div>-->
+            <!--<div class="img_container"><img class="" src="{{carTail.url}}" style="display: inline-block;"/></div>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;<show-image theImage="carTail"></show-image>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="item">-->
+          <!--<div style="font-size:14px;color:#A7A3A3"><i class="iconfont">&#xe615;&nbsp;</i>车辆行驶证照片</div>-->
+          <!--<div class="img_wrap" style="float: none">-->
+            <!--<div class="layer" ng-click="showActionSheet()">-->
+              <!--<p class="layer_text">驾驶证<br><span>点击上传</span></p>-->
+            <!--</div>-->
+            <!--<div class="img_container"><img width="100%" class="" src="../www/img/carCard.jpg" style="display: inline-block;"/></div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</form>-->
+    <div class="padding">
+      <button class="button button-block button-positive" ng-click="">提交</button>
+    </div>
+  </ion-content>
+  <!--<button class="button button-block button-positive button_bottom"  ng-click="">提交</button>-->
+</ion-view>
+
+
+
+
+
+
+<!--<ion-modal-view>-->
+  <!--<ion-header-bar class="bar-positive">-->
+    <!--<div class="button button-clear button-icon ion-ios-arrow-back" ng-click="closePublishModal()">返回</div>-->
+    <!--<h2 class="title">添加车辆</h2>-->
+  <!--</ion-header-bar>-->
+  <!--<ion-content class="bg-e4 has-header">-->
+    <!--<form>-->
+      <!--<div class="list">-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe615;&nbsp;</i>车牌号</span>-->
+          <!--<input type="text" placeholder="输入车牌号">-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe617;&nbsp;</i>载重(吨)</span>-->
+          <!--<input type="text" placeholder="输入载重(吨)">-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe602;&nbsp;</i>车长&车型</span>-->
+          <!--<input type="text" placeholder="输入车长&车型">-->
+        <!--</label>-->
+        <!--<label class="item item-input item-floating-label">-->
+          <!--<span class="input-label positive"><i class="iconfont">&#xe614;&nbsp;</i>载货空间M<sup>3</sup></span>-->
+          <!--<input type="text" placeholder="输入载货空间(立方米)">-->
+        <!--</label>-->
+        <!--<label class="item padding-left pic_list_min">-->
+          <!--<p style="padding-top:10px;color:#A7A3A3"><i class="iconfont">&#xe618;&nbsp;</i>漂亮的车辆照片更容易吸引货主！</p>-->
+           <!--<div class="img_wrap" ng-click="showActionSheet()">-->
+             <!--<div class="layer" ng-click="showActionSheet()">-->
+               <!--<p class="layer_text">车头照<br><span>点击上传</span></p>-->
+             <!--</div>-->
+             <!--<div class="img_container"><img class="" src="../www/img/carHead.jpg" style="display: inline-block;"/></div>-->
+           <!--</div>-->
+          <!--<div class="img_wrap">-->
+             <!--<div class="layer">-->
+               <!--<p class="layer_text">45°照<br><span>点击上传</span></p>-->
+             <!--</div>-->
+             <!--<div class="img_container"><img class="" src="../www/img/car45.jpg" style="display: inline-block;"/></div>-->
+           <!--</div>-->
+          <!--<div class="img_wrap">-->
+             <!--<div class="layer">-->
+               <!--<p class="layer_text">车尾照<br><span>点击上传</span></p>-->
+             <!--</div>-->
+            <!--<div class="img_container"><img class="" src="../www/img/carTail.jpg" style="display: inline-block;"/></div>-->
+             <!--</div>-->
+        <!--</label>-->
+        <!--<label class="item">-->
+          <!--<div style="font-size:14px;color:#A7A3A3"><i class="iconfont">&#xe615;&nbsp;</i>车辆行驶证照片</div>-->
+          <!--<div class="img_wrap" style="float: none">-->
+            <!--<div class="layer">-->
+              <!--<p class="layer_text">驾驶证<br><span>点击上传</span></p>-->
+            <!--</div>-->
+            <!--<div class="img_container"><img width="100%" class="" src="../www/img/carCard.jpg" style="display: inline-block;"/></div>-->
+          <!--</div>-->
+        <!--</label>-->
+      <!--</div>-->
+    <!--</form>-->
+  <!--</ion-content>-->
+    <!--<button class="button button-block button-positive button_bottom"  ng-click="">提交</button>-->
+<!--</ion-modal-view>-->
