@@ -5,10 +5,11 @@
 define([],function(){
   'use strict';
   function lorryInfoCtrl($scope,$ionicModal,$ionicActionSheet,$state){
+    var _this = this;
     console.log("------车源-------");
 
 
-    $scope.toAdd = function(){
+    _this.toAdd = function(){
       $state.go("menu.addLorryInfo");
     };
 
@@ -18,18 +19,18 @@ define([],function(){
 
     // 定义模态框操作，这是固定的写法
     $ionicModal.fromTemplateUrl('templates/lorry/selectLorry.html', function (modal) {
-      $scope.PublishModal = modal
+      _this.PublishModal = modal
     }, {
       animation: "slide-in-up",
       focusFirstInput: true,
       scope: $scope
     });
-    $scope.showPublishModal = function () {
-      $scope.PublishModal.show();
+    _this.showPublishModal = function () {
+      _this.PublishModal.show();
     };
 
-    $scope.closePublishModal = function () {
-      $scope.PublishModal.hide();
+    _this.closePublishModal = function () {
+      _this.PublishModal.hide();
     };
 
     $scope.$on('modal.hidden', function () {

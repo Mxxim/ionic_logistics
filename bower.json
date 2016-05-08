@@ -5,6 +5,7 @@
     "ionic": "driftyco/ionic-bower#1.2.4"
   },
   "dependencies": {
-    "ngCordova": "~0.1.26-alpha"
+    "ngCordova": "~0.1.26-alpha",
+    "ng-baidu-map": "*"
   }
 }

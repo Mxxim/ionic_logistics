@@ -11,13 +11,20 @@ navigation history that also transitions its views in and out.
   </ion-tab>
 
   <!-- 发布车源 Tab -->
-  <ion-tab title="发布" class="tab-item-active positive" icon-off="ion-ios-plus" icon-on="ion-ios-plus" href="#menu/addLorryInfo">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
+  <!--<ion-tab title="发布" class="tab-item-active positive" icon-off="ion-ios-plus" icon-on="ion-ios-plus" href="#menu/addLorryInfo">-->
+    <!--<ion-nav-view name="tab-chats"></ion-nav-view>-->
+  <!--</ion-tab>-->
+  <!-- 记录 Tab -->
+  <ion-tab title="运单记录" class="tab-item-active positive" icon-off="ion-ios-stopwatch" icon-on="ion-ios-stopwatch" href="#menu/tabs/order">
+    <ion-nav-view name="tab-order"></ion-nav-view>
   </ion-tab>
 
   <!-- 运价查询 Tab -->
-  <ion-tab title="运价查询" icon-off="ion-ios-eye-outline" icon-on="ion-ios-eye-outline" href="#menu/tabs/price">
-    <ion-nav-view name="tab-price"></ion-nav-view>
+  <!--<ion-tab title="运价查询" icon-off="ion-ios-eye-outline" icon-on="ion-ios-eye-outline" href="#menu/tabs/price">-->
+    <!--<ion-nav-view name="tab-price"></ion-nav-view>-->
+  <!--</ion-tab> -->
+  <ion-tab title="通知" icon-off="ion-chatbubble-working" badge="2" badge-style="badge-assertive" icon-on="ion-chatbubble-working" href="#menu/tabs/message">
+    <ion-nav-view name="tab-message"></ion-nav-view>
   </ion-tab>
 
 

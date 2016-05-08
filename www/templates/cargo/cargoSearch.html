@@ -1,0 +1,90 @@
+<!--<ion-view hide-tabs hide-nav-bar="true">-->
+  <!--<div class="bar bar-header bar-positive item-input-inset">-->
+    <!--<label class="item-input-wrapper">-->
+      <!--<i class="icon ion-ios-search placeholder-icon"></i>-->
+      <!--<input type="text" placeholder="输入搜索关键字" ng-model="searchKey" ng-change="searchToDo(searchKey)">-->
+    <!--</label>-->
+    <!--<button class="button button-clear" ng-click="$ionicGoBack()">-->
+      <!--取消-->
+    <!--</button>-->
+  <!--</div>-->
+
+  <!--<ion-content class="has-header">-->
+    <!--<div class="list" style="margin:0;">-->
+      <!--<div class="item item-divider item-energized" ng-show="searchKey"> 关于"{{searchKey | limitTo:12 }}"的搜索结果 <span class="badge">{{todolists.length}}</span></div>-->
+      <!--&lt;!&ndash;<div class="item item-checkbox"&ndash;&gt;-->
+           <!--&lt;!&ndash;ng-repeat="todo in todolists | orderBy:'-date'"&ndash;&gt;-->
+           <!--&lt;!&ndash;ng-click="show({{todo.id}},{{todo.type}})"&ndash;&gt;-->
+           <!--&lt;!&ndash;ng-show="todolists.length">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label class="checkbox {{todo.classname}}"><input type="checkbox" ng-click="finish({{todo.id}}, $event);"></label>&ndash;&gt;-->
+        <!--&lt;!&ndash;{{todo.title}} <span class="badge">{{todo.date | displayDate}}</span>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+  <!--</ion-content>-->
+<!--</ion-view>-->
+<ion-view>
+  <ion-nav-title>搜索货源</ion-nav-title>
+  <!--<ion-nav-buttons>-->
+    <!--<button class="button  back-button button-icon ion-ios-arrow-back button-clear" ng-click="$ionicGoBack()"></button>-->
+  <!--</ion-nav-buttons>-->
+
+  <ion-content class="has-header">
+    <div class="list list-inset search_list">
+      <div class="item" select-click>
+        <i class="iconfont balanced"> &#xe60a;&nbsp;</i>
+        <span ng-click="unfold()" class="add_def">
+          <span ng-if="cityFrom.Province === ''">输入出发地</span>
+           <span ng-if="cityFrom.Province != ''">
+            {{cityFrom.Province}} {{cityFrom.City}} {{cityFrom.County}}
+          </span>
+        </span>
+          <select-city selectvalue='cityFrom' ng-show="open"></select-city>
+
+      </div>
+      <!--<select-city selectvalue='cityFrom'></select-city>-->
+      <div class="item" select-click>
+        <i class="iconfont assertive">&#xe60b;&nbsp;</i>
+        <span ng-click="unfold()" class="add_def">
+          <span ng-if="cityTo.Province === ''">输入目的地</span>
+          <span ng-if="cityTo.Province != ''">
+            {{cityTo.Province}} {{cityTo.City}} {{cityTo.County}}
+          </span>
+        </span>
+        <select-city selectvalue='cityTo' ng-show="open"></select-city>
+      </div>
+      <div class="item">
+        <i class="ion-ios-clock positive"></i>&nbsp;
+        <select-date selectvalue='dateTo' class="add_def"></select-date>
+      </div>
+      <div class="item">
+        <i class="iconfont calm">&#xe608;&nbsp;</i>
+        <div style="display:inline-block">
+          <select id="sel_type" class="add_def">
+            <option selected value="">
+              选择车辆类型
+            </option>
+            <option value="">
+              平板车
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="item">
+        <i class="iconfont positive">&#xe608;&nbsp;</i>
+        <div style="display:inline-block">
+          <select id="sel_len" class="add_def">
+            <option selected value="">
+              选择车辆长度
+            </option>
+            <option value="">
+              平板车
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="padding">
+      <button class="button button-block button-positive">搜索货源</button>
+    </div>
+  </ion-content>
+</ion-view>

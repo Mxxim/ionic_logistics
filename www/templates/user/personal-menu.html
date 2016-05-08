@@ -7,12 +7,26 @@
     <ion-content style="box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)">
       <br>
       <ion-list>
-        <ion-item  menu-toggle class="item-avatar" style="border:none" href="">
-          <img src="img/ben.png" alt="" width="35">
-          <h2 class="title">sammy</h2>
-          <p style="color:#cccccc">未认证</p>
-        </ion-item><br>
-        <ion-item  menu-toggle class="item-icon-left" href="">
+        <ion-item  ng-if="userInfo&&!userInfo.ifAuth" menu-toggle class="item-avatar" style="border:none" href="#/menu/authentication">
+          <img ng-if="userInfo.userImage" src="{{userInfo.userImage}}" alt="" width="35">
+          <img ng-if="!userInfo.userImage" src="img/commentfailure.png" alt="" width="35">
+          <h2 ng-if="userInfo.realName" class="title">{{userInfo.realName}}</h2>
+          <h2 ng-if="!userInfo.realName" class="title">{{userInfo.username}}</h2>
+          <p style="color:#cccccc">车主未认证</p>
+        </ion-item>
+        <ion-item  ng-if="userInfo&&userInfo.ifAuth" menu-toggle class="item-avatar" style="border:none">
+          <img ng-if="userInfo.userImage" src="{{userInfo.userImage}}" alt="" width="35">
+          <img ng-if="!userInfo.userImage" src="img/commentfailure.png" alt="" width="35">
+          <h2 ng-if="userInfo.realName" class="title">{{userInfo.realName}}</h2>
+          <h2 ng-if="!userInfo.realName" class="title">{{userInfo.username}}</h2>
+          <p style="color:#cccccc">已认证</p>
+        </ion-item>
+        <ion-item  ng-if="!userInfo" menu-toggle class="item-avatar" style="border:none" href="#/menu/login">
+          <img src="img/commentfailure.png" alt="" width="35">
+          <p style="color:#cccccc">未登陆</p>
+        </ion-item>
+        <br>
+        <ion-item  menu-toggle class="item-icon-left" href="#/menu/tabs/cargo">
           <i class="icon ion-ios-box assertive"></i>
           当前货源
         </ion-item><br>
@@ -20,15 +34,16 @@
           <i class="icon ion-ios-person positive"></i>
           我的熟客
         </ion-item>
-        <ion-item  menu-toggle class="item-icon-left" href="">
-          <i class="icon ion-ios-list royal"></i>
-          我的运单
-        </ion-item><br>
-        <ion-item  menu-toggle class="item-icon-left" href="#/menu/lorryInfo">
-          <i class="iconfont icon_menu calm">&#xe606;</i>
+        <!--<ion-item  menu-toggle class="item-icon-left" href="#/menu/order">-->
+          <!--<i class="icon ion-ios-list royal"></i>-->
+          <!--我的运单-->
+        <!--</ion-item>-->
+        <br>
+        <!--<ion-item  menu-toggle class="item-icon-left" href="#/menu/lorryInfo">-->
+          <!--<i class="iconfont icon_menu calm">&#xe606;</i>-->
 
-          我的车源
-        </ion-item>
+          <!--我的车源-->
+        <!--</ion-item>-->
         <ion-item  menu-toggle class="item-icon-left" href="#/menu/lorry">
           <i class="iconfont icon_menu positive">&#xe605;</i>
           我的车辆
@@ -38,7 +53,7 @@
           我的评价
         </ion-item><br>
         <!--<ion-item menu-close href="">我的广场</ion-item>-->
-        <ion-item  menu-toggle class="item-icon-left" href="">
+        <ion-item  menu-toggle class="item-icon-left" href="#/menu/settings">
           <i class="icon ion-gear-b positive"></i>
           设置
         </ion-item>

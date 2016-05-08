@@ -48,18 +48,19 @@
 define([],function(){
   'use strict';
   function lorryCtrl($scope,$ionicHistory,$ionicModal,$ionicActionSheet,$state,LorryService){
+    var _this = this;
     console.log("------车辆-------");
 
     $scope.$on('$destroy',function(){
       console.log("------lorryCtrl销毁页面-------");
     })
-    $scope.toAdd = function(){
+    _this.toAdd = function(){
       $state.go("menu.addLorry");
     };
 
     //  定义上拉菜单的样式与操作
-     $scope.showActionSheet = function(type){
-       $scope.hideSheet = $ionicActionSheet.show({
+    _this.showActionSheet = function(type){
+      _this.hideSheet = $ionicActionSheet.show({
         buttons:[
           {
             text:"拍照"
@@ -71,10 +72,10 @@ define([],function(){
         buttonClicked:function(index){
           switch(index){
             case 0:
-              $scope.addImageFromCamera(type);
+              _this.addImageFromCamera(type);
               break;
             case 1:
-              $scope.addImageFromLib(type);
+              _this.addImageFromLib(type);
               break;
           }
           return true;
@@ -88,30 +89,30 @@ define([],function(){
     }
 
     // 相机
-    $scope.addImageFromCamera = function(type){
+    this.addImageFromCamera = function(type){
       console.log("------------相机------------");
-      $scope.hideSheet();
+      _this.hideSheet();
       LorryService.saveFromCamera().then(function(theImage){
         switch(type){
           // 车头
           case 1:
             console.log("--------------1--------------");
-            $scope.carHead = theImage;
+            _this.carHead = theImage;
             break;
           //  45度
           case 2:
             console.log("--------------2--------------");
-            $scope.car45 = theImage;
+            _this.car45 = theImage;
             break;
           // 车尾
           case 3:
             console.log("--------------3--------------");
-            $scope.carTail = theImage;
+            _this.carTail = theImage;
             break;
           // 驾驶证
           case 4:
             console.log("--------------4--------------");
-            $scope.carCard = theImage;
+            _this.carCard = theImage;
             break;
         }
       },function(e){
@@ -119,30 +120,30 @@ define([],function(){
       });
     }
     // 图库
-    $scope.addImageFromLib = function(type){
+    this.addImageFromLib = function(type){
       console.log("------------图库------------");
-      $scope.hideSheet();
+      _this.hideSheet();
       LorryService.saveFromLib().then(function(theImage){
         switch(type){
           // 车头
           case 1:
             console.log("--------------1--------------");
-            $scope.carHead = theImage;
+            _this.carHead = theImage;
             break;
           //  45度
           case 2:
             console.log("--------------2--------------");
-            $scope.car45 = theImage;
+            _this.car45 = theImage;
             break;
           // 车尾
           case 3:
             console.log("--------------3--------------");
-            $scope.carTail = theImage;
+            _this.carTail = theImage;
             break;
           // 驾驶证
           case 4:
             console.log("--------------4--------------");
-            $scope.carCard = theImage;
+            _this.carCard = theImage;
             break;
         }
       },function(e){

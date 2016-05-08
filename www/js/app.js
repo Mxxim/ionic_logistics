@@ -1,7 +1,9 @@
 define([
+  'config',
   'services/services',  // 加载services.js，该文件中注明了所有模块的service，因此也会加载各个模块的service文件
   'controllers/controllers', // 加载controllers.js，该文件中注明了所有模块的controller，因此也会加载各个模块的controller文件
-  'directives/directive'
+  'directives/directive',
+  'directives/formDirect'
 ],function(){
     'use strict';
 
@@ -39,11 +41,17 @@ define([
     $ionicConfigProvider.platform.ios.navBar.alignTitle('center');
     $ionicConfigProvider.platform.android.navBar.alignTitle('center');
 
-    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-thin-left');
-    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-android-arrow-back');
+    $ionicConfigProvider.platform.ios.backButton.previousTitleText('').icon('ion-ios-arrow-back');
+    $ionicConfigProvider.platform.android.backButton.previousTitleText('').icon('ion-ios-arrow-back');
 
     $ionicConfigProvider.platform.ios.views.transition('ios');
     $ionicConfigProvider.platform.android.views.transition('android');
+
+    //$ionicConfigProvider.views.forwardCache(true);
+
+    // 设置返回按钮的文字为空
+    //$ionicConfigProvider.backButton.previousTitleText(false).text('');
+
 
     // 调用原生页面切换，配置 ionic-native-transitions 属性
     $ionicNativeTransitionsProvider.setDefaultOptions({
@@ -97,8 +105,8 @@ define([
         views: {
           'tab-cargo': {
             templateUrl: 'templates/cargo/tab-cargo.html',
-            controller:'CargoCtrl'
-            //controllerAs:'cargo',  // 控制器与$scope绑定，在页面中不再使用{{someObject}} ，而是用{{cargo.someObject}},控制器内用this代替$scope
+            controller:'CargoCtrl',
+            controllerAs:'cargo' // 控制器与$scope绑定，在页面中不再使用{{someObject}} ，而是用{{cargo.someObject}},控制器内用this代替$scope
             //resolve:CargoCtrl.resolve
           }
         }
@@ -112,17 +120,78 @@ define([
         views: {
           'tab-cargo': {
             templateUrl: 'templates/cargo/cargoDetail.html',
-            controller: 'CargoCtrl'
+            controller: 'CargoCtrl',
+            controllerAs:'cargo'
           }
         }
       })
+      .state('menu.tabs.cargoSearch', {
+        url: '/cargo/search',
+        nativeTransitionsAndroid: {
+          "type": "slide",
+          "direction": "up"
+        },
+        views: {
+          'tab-cargo': {
+            templateUrl: 'templates/cargo/cargoSearch.html'
+            //,
+            //controller: 'CargoCtrl',
+            //controllerAs: 'cargo',
+          }
+        }
+      })
+
+      //.state('menu.order', {
+      //  url: '/order',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/order/myOrder.html',
+      //      controller:'OrderCtrl',
+      //      controllerAs:'order'
+      //    }
+      //  }
+      //})
+
+      .state('menu.tabs.order', {
+        url: '/order',
+        cache:false,  // 不加这个的话每次从“运单记录”返回“找货源”不会触发$destory事件，导致tabs不显示
+        views: {
+          'tab-order': {
+            templateUrl: 'templates/order/myOrder.html',
+            controller:'OrderCtrl',
+            controllerAs:'order'
+          }
+        }
+      })
+
+      .state('menu.tabs.orderDetail', {
+        url: 'order/1',
+        views: {
+          'tab-order': {
+            templateUrl: 'templates/order/orderDetail.html',
+            controller:'OrderCtrl',
+            controllerAs:'order'
+          }
+        }
+      })
+      //.state('menu.orderDetail', {
+      //  url: '/1',
+      //  views: {
+      //    'menuContent': {
+      //      templateUrl: 'templates/order/orderDetail.html',
+      //      controller:'OrderCtrl',
+      //      controllerAs:'order'
+      //    }
+      //  }
+      //})
 
       .state('menu.lorry', {
         url: '/lorry',
         views: {
           'menuContent': {
             templateUrl: 'templates/lorry/myLorry.html',
-            controller:'LorryCtrl'
+            controller:'LorryCtrl',
+            controllerAs:'lorry'
           }
         }
       })
@@ -131,7 +200,8 @@ define([
         views: {
           'menuContent': {
             templateUrl: 'templates/lorry/addLorry.html',
-            controller:'LorryCtrl'
+            controller:'LorryCtrl',
+            controllerAs:'lorry'
           }
         }
       })
@@ -141,7 +211,8 @@ define([
         views: {
           'menuContent': {
             templateUrl: 'templates/lorry/myLorryInfo.html',
-            controller:'LorryInfoCtrl'
+            controller:'LorryInfoCtrl',
+            controllerAs:'lorryInfo'
           }
         }
       })
@@ -151,78 +222,72 @@ define([
         views: {
           'menuContent': {
             templateUrl: 'templates/lorry/addLorryInfo.html',
-            controller:'LorryInfoCtrl'
+            controller:'LorryInfoCtrl',
+            controllerAs:'lorryInfo'
           }
         }
       })
 
-      .state('menu.tabs.price', {
-        url: '/price',
+      .state('menu.tabs.message', {
+        url: '/message',
         views: {
-          'tab-price': {
-            templateUrl: 'templates/public/tab-price.html',
-            controller:'CargoCtrl'
+          'tab-message': {
+            templateUrl: 'templates/user/message.html'
+            //controller:'CargoCtrl'
 
-          }
-        }
-      })
-
-      .state('tab.personal', {
-        url: '/personal',
-        views: {
-          'tab-personal': {
-            templateUrl: 'templates/user/tab-personal.html',
-            controller:'UserCtrl'
 
           }
         }
       })
 
-      .state('tab.dash', {
-        url: '/dash',
+      .state('menu.login', {
+        url: '/login',
         views: {
-          'tab-dash': {
-            templateUrl: 'templates/tab-dash.html',
-            controller: 'DashCtrl'
+          'menuContent': {
+            templateUrl: 'templates/user/login.html',
+            controller:'UserCtrl',
+            controllerAs:'user'
           }
         }
       })
-
-      .state('tab.chats', {
-        url: '/chats',
+      .state('menu.register', {
+        url: '/register',
         views: {
-          'tab-chats': {
-            templateUrl: 'templates/tab-chats.html',
-            controller: 'ChatsCtrl'
+          'menuContent': {
+            templateUrl: 'templates/user/register.html',
+            controller:'UserCtrl',
+            controllerAs:'user'
           }
         }
       })
-      .state('tab.chat-detail', {
-        url: '/chats/:chatId',
+      .state('menu.authentication', {
+        url: '/authentication',
         views: {
-          'tab-chats': {
-            templateUrl: 'templates/chat-detail.html',
-            controller: 'ChatDetailCtrl'
+          'menuContent': {
+            templateUrl: 'templates/user/authentication.html',
+            controller:'UserCtrl',
+            controllerAs:'user'
           }
         }
       })
-
-      .state('tab.account', {
-        url: '/account',
+      .state('menu.settings', {
+        url: '/settings',
         views: {
-          'tab-account': {
-            templateUrl: 'templates/tab-account.html',
-            controller: 'AccountCtrl'
+          'menuContent': {
+            templateUrl: 'templates/user/settings.html',
+            controller:'UserCtrl',
+            controllerAs:'user' // 控制器与$scope绑定，在页面中不再使用{{someObject}} ，而是用{{cargo.someObject}},控制器内用this代替$scope
+            //resolve:CargoCtrl.resolve
           }
         }
-      });
+      })
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/menu/tabs/cargo');
 
   }
 
-  var app = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.directive','ionic-native-transitions','ngCordova']);
+  var app = angular.module('starter', ['ionic', 'starter.config','starter.controllers', 'starter.services','starter.directive','formDirect','ionic-native-transitions','ngCordova']);
 
     app.run(run)
 

@@ -29,43 +29,43 @@
         </label>
         <div class="item padding-left pic_list_min">
           <p style="padding-top:10px;color:#A7A3A3"><i class="iconfont">&#xe618;&nbsp;</i>漂亮的车辆照片更容易吸引货主！</p>
-          <div class="img_wrap" id="carHead" ng-click="showActionSheet(1)">
+          <div class="img_wrap" id="carHead" ng-click="lorry.showActionSheet(1)">
             <div class="layer">
               <p class="layer_text">车头照<br><span>点击上传</span></p>
             </div>
             <div class="img_container">
-              <img ng-if="carHead" ng-src="{{carHead}}" style="display: inline-block;"/>
-              <img ng-if="!carHead" ng-src="../www/img/carHead.jpg" style="display: inline-block;"/>
+              <img ng-if="lorry.carHead" ng-src="{{lorry.carHead}}" style="display: inline-block;"/>
+              <img ng-if="!lorry.carHead" ng-src="../www/img/carHead.jpg" style="display: inline-block;"/>
             </div>
           </div>
-          <div class="img_wrap" id="car45" ng-click="showActionSheet(2)">
+          <div class="img_wrap" id="car45" ng-click="lorry.showActionSheet(2)">
             <div class="layer">
               <p class="layer_text">45°照<br><span>点击上传</span></p>
             </div>
             <div class="img_container">
-              <img ng-if="car45" ng-src="{{car45}}" style="display: inline-block;"/>
-              <img ng-if="!car45" ng-src="../www/img/car45.jpg" style="display: inline-block;"/>
+              <img ng-if="lorry.car45" ng-src="{{lorry.car45}}" style="display: inline-block;"/>
+              <img ng-if="!lorry.car45" ng-src="../www/img/car45.jpg" style="display: inline-block;"/>
             </div>
           </div>
           <div class="img_wrap" id="carTail">
-            <div class="layer" ng-click="showActionSheet(3)">
+            <div class="layer" ng-click="lorry.showActionSheet(3)">
               <p class="layer_text">车尾照<br><span>点击上传</span></p>
             </div>
             <div class="img_container">
-              <img ng-if="carTail" ng-src="{{carTail}}" style="display: inline-block;"/>
-              <img ng-if="!carTail" ng-src="../www/img/carTail.jpg" style="display: inline-block;"/>
+              <img ng-if="lorry.carTail" ng-src="{{lorry.carTail}}" style="display: inline-block;"/>
+              <img ng-if="!lorry.carTail" ng-src="../www/img/carTail.jpg" style="display: inline-block;"/>
             </div>
           </div>
         </div>
         <div class="item">
           <div style="font-size:14px;color:#A7A3A3"><i class="iconfont">&#xe615;&nbsp;</i>车辆行驶证照片</div>
           <div class="img_wrap" id="carCard" style="float: none">
-            <div class="layer" ng-click="showActionSheet(4)">
+            <div class="layer" ng-click="lorry.showActionSheet(4)">
               <p class="layer_text">驾驶证<br><span>点击上传</span></p>
             </div>
             <div class="img_container">
-              <img width="100%" ng-if="carCard" ng-src="{{carCard}}" style="display: inline-block;"/>
-              <img width="100%" ng-if="!carCard" ng-src="../www/img/carCard.jpg" style="display: inline-block;"/>
+              <img width="100%" ng-if="lorry.carCard" ng-src="{{lorry.carCard}}" style="display: inline-block;"/>
+              <img width="100%" ng-if="!lorry.carCard" ng-src="../www/img/carCard.jpg" style="display: inline-block;"/>
             </div>
           </div>
         </div>

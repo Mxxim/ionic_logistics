@@ -30,7 +30,14 @@
     "cordova-plugin-image-picker",
     "cordova-plugin-camera",
     "cordova-plugin-file",
-    "cordova-plugin-file-transfer"
+    "cordova-plugin-file-transfer",
+    {
+      "variables": {
+        "API_KEY": "Dps0i1hOEQcMsbYYFgZKtRE1C4xufIwM"
+      },
+      "locator": "https://github.com/mrwutong/cordova-qdc-baidu-location",
+      "id": "com.qdc.plugins.baidu.location"
+    }
   ],
   "cordovaPlatforms": [
     "ios",
