@@ -1,154 +1,36 @@
 <ion-view view-title="找货源">
   <ion-nav-title>
-    <i class="ion-ios-location assertive"></i>&nbsp;
-    <span ng-if="cargo.address.city">{{cargo.address.city}}{{cargo.address.area}}</span>
-    <span ng-if="!cargo.address.city">未定位成功</span>
+    <!--<i class="ion-ios-location assertive"></i>&nbsp;-->
+    <!--<span ng-if="city">{{city}}</span>-->
+    <!--<span ng-if="!city">未定位成功</span>-->
+    找货源
   </ion-nav-title>
   <ion-nav-buttons side="right">
       <a href="#/menu/tabs/cargo/search">
         <button class="button button-icon icon ion-ios-search"></button>
       </a>
   </ion-nav-buttons>
-  <!-- 搜索导航start -->
-  <!--<div class="bar bar-subheader sub_header_wrap">-->
-    <!--<div class="button-bar">-->
-      <!--<div class="bar_item" search-city ng-click="toggleItem()">-->
-        <!--<span>出发地{{count}}</span>&nbsp;<i class="ion-arrow-down-b"></i>-->
-        <!--&lt;!&ndash;<div class="sub_header_div">&ndash;&gt;-->
-          <!--&lt;!&ndash;<ion-content scroll="false" padding="true" class="sub_header_div_c c_one">&ndash;&gt;-->
-            <!--&lt;!&ndash;<ion-scroll class="sub_header_div_c_s" direction="y" scrollbar-y="true">&ndash;&gt;-->
-              <!--&lt;!&ndash;<ion-list class="b_list">&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item value="{{item.code}}" ng-repeat="item in allProvince">{{item.city}}</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<ion-item>湖南省</ion-item>&ndash;&gt;&ndash;&gt;-->
-              <!--&lt;!&ndash;</ion-list>&ndash;&gt;-->
-            <!--&lt;!&ndash;</ion-scroll>&ndash;&gt;-->
-          <!--&lt;!&ndash;</ion-content>&ndash;&gt;-->
-          <!--&lt;!&ndash;<ion-content scroll="false" padding="true" class="sub_header_div_c c_two">&ndash;&gt;-->
-            <!--&lt;!&ndash;<ion-scroll class="sub_header_div_c_s" direction="y" scrollbar-y="true">&ndash;&gt;-->
-              <!--&lt;!&ndash;<ion-list class="b_list">&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>广州市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>汕头市</ion-item>&ndash;&gt;-->
-              <!--&lt;!&ndash;</ion-list>&ndash;&gt;-->
-            <!--&lt;!&ndash;</ion-scroll>&ndash;&gt;-->
-          <!--&lt;!&ndash;</ion-content>&ndash;&gt;-->
-          <!--&lt;!&ndash;<ion-content scroll="false" padding="true" class="sub_header_div_c c_three">&ndash;&gt;-->
-            <!--&lt;!&ndash;<ion-scroll class="sub_header_div_c_s" direction="y" scrollbar-y="true">&ndash;&gt;-->
-              <!--&lt;!&ndash;<ion-list class="b_list">&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-                <!--&lt;!&ndash;<ion-item>潮阳区</ion-item>&ndash;&gt;-->
-              <!--&lt;!&ndash;</ion-list>&ndash;&gt;-->
-            <!--&lt;!&ndash;</ion-scroll>&ndash;&gt;-->
-          <!--&lt;!&ndash;</ion-content>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--</div>-->
-      <!--<div class="bar_item" search-city ng-click="toggleItem()">-->
-        <!--<span>目的地{{count}}</span>&nbsp;<i class="ion-arrow-down-b"></i>-->
-      <!--</div>-->
-      <!--<div class="bar_item"><span>时间</span>&nbsp;<i class="ion-arrow-down-b"></i></div>-->
-      <!--<div class="bar_item"><span>车型</span>&nbsp;<i class="ion-arrow-down-b"></i></div>-->
-    <!--</div>-->
-    <!--</ion-scroll>-->
-  <!--</div>-->
-  <!-- 搜索导航end -->
-  <!-- ion-content start -->
   <ion-content style="z-index:1">
-    <!-- 轮播图start -->
-    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" class="home-slide">
-      <ion-slide>
-        <img src="../www/img/slide3.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="../www/img/slide1.jpg">
-      </ion-slide>
-      <ion-slide>
-        <img src="../www/img/slide2.jpg">
-      </ion-slide>
-    </ion-slide-box>
-    <!-- 轮播图end -->
+    <!-- 定位地图start -->
+    <my-map id="mymap" city="city"></my-map>
+    <!-- 定位地图end -->
     <!-- 货源列表start -->
     <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
-    <ion-list ng-if="cargo.address.city">
+    <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right"
-                ng-repeat="item in cargo.items"
-                ng-show="item.addrFrom.city == cargo.address.city || item.addrFrom.area == cargo.address.area"
-                href="#/menu/tabs/cargo/1">
-        <img src="{{item.user.url}}">
-        <p class="item_name">{{item.user.name}}</p>
+                ng-repeat="cargo in cargo.cargos | filter:{from:city}"
+                href="#/menu/tabs/cargo/{{cargo._id}}">
+        <img src="{{api}}{{cargo.user.userImage}}">
+        <p class="item_name">{{cargo.user.username}}</p>
         <div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">
-          &#xe60a;</i><span>{{item.addrFrom.city}}{{item.addrFrom.area}}</span></div>
-        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>{{item.addrTo.city}}{{item.addrTo.area}}</span></div>
-        <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;{{item.cargo.dateTime}}
+          &#xe60a;</i><span>{{cargo.from}}</span></div>
+        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>{{cargo.to}}</span></div>
+        <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;{{cargo.dateTime}}
         </p>
-        <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;{{item.cargo.name}}&nbsp;{{item.cargo.weight}}吨&emsp;要&nbsp;{{item.cargo.lorry.length}}米&nbsp;{{item.cargo.lorry.type}}
+        <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;{{cargo.name}}&nbsp;{{cargo.load}}吨&emsp;要&nbsp;{{cargo.lorryLength}}米&nbsp;{{cargo.lorryType}}
         </p>
         <i class="icon iconfont" style="color: orangered">&#xe60c;</i>
       </ion-item>
-    </ion-list>
-    <!--<ion-list>-->
-      <!--<ion-item class="item-remove-animate item-avatar item-icon-right" href="#/menu/tabs/cargo/1">-->
-      <!--<img src="../www/img/ben.png">-->
-      <!--<p class="item_name">马女士</p>-->
-      <!--<div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">-->
-      <!--&#xe60a;</i><span>湛江市麻章区</span></div>-->
-      <!--<div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>广州市越秀区</span></div>-->
-      <!--<p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;2016-04-05早上装-->
-      <!--</p>-->
-      <!--<p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;饮料&nbsp;25吨&emsp;要&nbsp;17.5米&nbsp;平板车-->
-      <!--</p>-->
-      <!--<i class="icon iconfont" style="color: orangered">&#xe60c;</i>-->
-      <!--</ion-item>-->
-      <!--<ion-item class="item-remove-animate item-avatar item-icon-right">-->
-      <!--<img src="../www/img/ben.png">-->
-      <!--<p class="item_name">马女士</p>-->
-      <!--<div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">-->
-      <!--&#xe60a;</i><span>湛江市麻章区</span></div>-->
-      <!--<div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>广州市越秀区</span></div>-->
-      <!--<p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;2016-04-05早上装-->
-      <!--</p>-->
-      <!--<p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;饮料&nbsp;25吨&emsp;要&nbsp;17.5米&nbsp;平板车-->
-      <!--</p>-->
-      <!--<i class="icon iconfont" style="color: orangered">&#xe60c;</i>-->
-      <!--</ion-item>-->
-      <!--<ion-item class="item-remove-animate item-avatar item-icon-right">-->
-      <!--<img src="../www/img/ben.png">-->
-      <!--<p class="item_name">马女士</p>-->
-      <!--<div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">-->
-      <!--&#xe60a;</i><span>湛江市麻章区</span></div>-->
-      <!--<div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>广州市越秀区</span></div>-->
-      <!--<p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;2016-04-05早上装-->
-      <!--</p>-->
-      <!--<p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;饮料&nbsp;25吨&emsp;要&nbsp;17.5米&nbsp;平板车-->
-      <!--</p>-->
-      <!--<i class="icon iconfont" style="color: orangered">&#xe60c;</i>-->
-      <!--</ion-item>-->
-    <!--</ion-list>-->
-
-    <ion-list ng-if="!cargo.address.city">
-      <div class="row">
-        <div class="col col-offset-33" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>请检查网络连接！</div>
-      </div>
     </ion-list>
     <!-- 货源列表end -->
     <ion-infinite-scroll on-infinite="loadMore()" ng-if="hasNextPage()"></ion-infinite-scroll>

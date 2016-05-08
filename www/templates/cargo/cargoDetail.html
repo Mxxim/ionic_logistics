@@ -15,37 +15,47 @@
     <div ng-if="!showloading">
       <ion-list class="item_detail">
         <ion-item class="detail_addr text-center">
-            <span>湛江市麻章区湖光镇</span>
-            <i class="iconfont positive" style="font-size:20px">&nbsp;&#xe60e;&nbsp;</i>
-            <span>广州市越秀区22</span>
+            <div class="cd_addr_wrap">
+              <i class="iconfont assertive cd_addr">&#xe61e;</i>
+              <span>&emsp;{{cargoDetail.cargo.from}}</span>
+            </div>
+            <i class="iconfont positive" style="font-size:30px">&nbsp;&#xe61d;</i>
+            <div class="cd_addr_wrap">
+              <i class="iconfont royal cd_addr">&#xe61f;&nbsp;</i>
+              <span class="text_ellipsis">{{cargoDetail.cargo.to}}</span>
+            </div>
         </ion-item>
         <ion-item>
           <p><i class="iconfont positive" style="font-size:20px;">&#xe609;&nbsp;</i>您当前距离装货地<span class="assertive">1.2公里</span></p>
-          <p><i class="iconfont positive" style="font-size:20px;">&#xe611;&nbsp;</i>装货地距离卸货地<span class="assertive">800.2公里</span></p>
+          <p><i class="iconfont positive" style="font-size:20px;">&#xe611;&nbsp;</i>装货地距离卸货地<span class="assertive">{{cargoDetail.cargo.distance}}公里</span></p>
         </ion-item>
         <ion-item>
           <span class="detail_title">货品信息</span>
-          <span class="detail_content">饮料  10吨</span>
+          <span class="detail_content">{{cargoDetail.cargo.name}}  {{cargoDetail.cargo.load}}吨</span>
+        </ion-item>
+        <ion-item>
+          <span class="detail_title">装货时间</span>
+          <span class="detail_content">{{cargoDetail.cargo.dateTime}}</span>
         </ion-item>
         <ion-item>
           <span class="detail_title">需要车型</span>
-          <span class="detail_content">17.5米  平板车</span>
+          <span class="detail_content">{{cargoDetail.cargo.lorryLength}}米  {{cargoDetail.cargo.lorryType}}</span>
         </ion-item>
-        <ion-item>
-          <span class="detail_title">付款方式</span>
-          <span class="detail_content">货到付款</span>
-        </ion-item>
+        <!--<ion-item>-->
+          <!--<span class="detail_title">付款方式</span>-->
+          <!--<span class="detail_content">货到付款</span>-->
+        <!--</ion-item>-->
         <ion-item>
           <span class="detail_title">备注</span>
-          <span class="detail_content">无</span>
+          <span class="detail_content">{{cargoDetail.cargo.text}}</span>
         </ion-item>
         <ion-item>
           <span class="detail_title">联系人</span>
-          <span class="detail_content">马女士</span>
+          <span class="detail_content">{{cargoDetail.cargo.user.realName}}</span>
         </ion-item>
         <ion-item>
           <span class="detail_title">运费</span>
-          <span class="detail_price">￥1088</span>
+          <span class="detail_price">￥{{cargoDetail.cargo.price}}</span>
         </ion-item>
       </ion-list>
     </div>
@@ -53,7 +63,7 @@
   <!--<div class="padding">-->
     <!--<a href="tel:13726935307">-->
 
-      <button class="button button-block button-assertive button_bottom" ng-click="cargo.showPopup(obj)">立即抢单</button>
+      <button class="button button-block button-assertive button_bottom" ng-click="cargoDetail.showPopup(obj)">立即抢单</button>
     <!--</a>-->
     <!--<button class="button button-block button-assertive button_bottom"  ng-click="">我要抢单</button>-->
   <!--</div>-->

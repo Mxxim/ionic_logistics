@@ -279,7 +279,10 @@
 
 /* 货源列表 */
 .item_name{
-  position: absolute;left:15px;top:60px;
+  width:60px;
+  position: absolute;
+  left:15px;
+  top:60px;
 }
 
 /* 运单 */
@@ -340,12 +343,21 @@
   color:#666
 }
 .detail_addr span{
-  width:7rem;
-  white-space:nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  /*width:7rem;*/
+  width:80%;
+  /*white-space:;*/
+  /*text-overflow:wrap;*/
+  /*overflow: hidden;*/
+  white-space:normal;
   font-weight:bold;
   font-size:16px;
+  display: inline-block;
+}
+.cd_addr_wrap{
+  padding-bottom:10px;position: relative;
+}
+.cd_addr{
+  font-size:30px;position: absolute;left:0;
 }
 .item_detail span.detail_title{
   margin-right: 15px;

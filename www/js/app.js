@@ -2,6 +2,7 @@ define([
   'config',
   'services/services',  // 加载services.js，该文件中注明了所有模块的service，因此也会加载各个模块的service文件
   'controllers/controllers', // 加载controllers.js，该文件中注明了所有模块的controller，因此也会加载各个模块的controller文件
+  'filters/filters',
   'directives/directive',
   'directives/formDirect'
 ],function(){
@@ -31,7 +32,7 @@ define([
     });
   }
 
-  function config($stateProvider, $urlRouterProvider,$ionicConfigProvider,$ionicNativeTransitionsProvider) {
+  function config($stateProvider, $urlRouterProvider,$ionicConfigProvider,$ionicNativeTransitionsProvider,baiduMapApiProvider) {
 
     $ionicConfigProvider.platform.ios.tabs.style('standard');
     $ionicConfigProvider.platform.ios.tabs.position('bottom');
@@ -76,6 +77,8 @@ define([
       direction: 'right'
     });
 
+    baiduMapApiProvider.version('2.0').accessKey('Dps0i1hOEQcMsbYYFgZKtRE1C4xufIwM');
+
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
@@ -112,7 +115,7 @@ define([
         }
       })
       .state('menu.tabs.cargoDetail', {
-        url: '/cargo/1',
+        url: '/cargo/:cid',
         //nativeTransitionsAndroid: {
         //  "type": "slide",
         //  "direction": "up"
@@ -120,8 +123,8 @@ define([
         views: {
           'tab-cargo': {
             templateUrl: 'templates/cargo/cargoDetail.html',
-            controller: 'CargoCtrl',
-            controllerAs:'cargo'
+            controller: 'CargoDetailCtrl',
+            controllerAs:'cargoDetail'
           }
         }
       })
@@ -287,7 +290,7 @@ define([
 
   }
 
-  var app = angular.module('starter', ['ionic', 'starter.config','starter.controllers', 'starter.services','starter.directive','formDirect','ionic-native-transitions','ngCordova']);
+  var app = angular.module('starter', ['ionic', 'ngBaiduMap','starter.config','starter.controllers', 'starter.services','starter.directive','starter.filter','formDirect','ionic-native-transitions','ngCordova']);
 
     app.run(run)
 

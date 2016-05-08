@@ -161,82 +161,126 @@ console.log(attr);
     };
   })
 
-  .directive("searchAddr",function($q,$document,baiduMapApi){
-    return {
-      restrict: 'E',
-      replace: true,
-      link:     function link(scope, element, attrs){
-        baiduMapApi.then(function(BMap) {
+    .directive("searchAddr",function($q,$document,baiduMapApi){
+      return {
+        restrict: 'E',
+        replace: true,
+        link:     function link(scope, element, attrs){
 
-          console.log("=============================================================================");
-          console.log(BMap);
-          console.log("=============================================================================");
+          scope.placeholder = attrs.placeholder;
+          //scope.mapID = attrs.mapID;
+          scope.suggestId = attrs.suggestid;
+          //scope.selectData = "";
+          scope.resultData = "";
 
-          function G(id) {
-            return document.getElementById(id);
-          }
+          baiduMapApi.then(function(BMap) {
 
-          var map = new BMap.Map("l-map");
-          map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+            //function G(id) {
+            //  return document.getElementById(id);
+            //}
+            var localCity = new BMap.LocalCity();
 
-          var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
-            {"input" : "suggestId"
-              ,"location" : map
+            localCity.get(function(msg){    // msg.name为当前城市的名称
+
+              //var map = new BMap.Map("scope.mapID");
+              //map.centerAndZoom(msg.name,12);                   // 初始化地图,设置城市和地图级别。
+
+              var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+                {"input" : scope.suggestId
+                  //,"location" : map
+                });
+
+              ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+                console.log("鼠标放在下拉列表上的事件");
+                var str = "";
+                var _value = e.fromitem.value;
+                var value = "";
+                if (e.fromitem.index > -1) {
+                  value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                }
+                str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+                value = "";
+                if (e.toitem.index > -1) {
+                  _value = e.toitem.value;
+                  value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                }
+                str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+                //G("searchResultPanel").innerHTML = str;
+                scope.str = str;
+              });
+
+              var myValue;
+              ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+                console.log(e);
+                console.log("鼠标点击下拉列表后的事件");
+                var _value = e.item.value;
+                myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+                //G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+                scope.str ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+                //var myGeo = new BMap.Geocoder();    // 将地址解析结果显示在地图上,并调整地图视野
+                //myGeo.getPoint(myValue,function(point){     // 根据用户选择得到经纬度，以便于后面计算两点的距离
+                //  console.log(point);
+                //  scope.resultData.point = point;
+                //});
+                scope.resultData = myValue;
+                //setPlace();
+              });
+              //
+              //function setPlace(){
+              //  map.clearOverlays();    //清除地图上所有覆盖物
+              //  function myFun(){
+              //    var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+              //    map.centerAndZoom(pp, 18);
+              //    map.addOverlay(new BMap.Marker(pp));    //添加标注
+              //  }
+              //  var local = new BMap.LocalSearch(map, { //智能搜索
+              //    onSearchComplete: myFun
+              //  });
+              //  local.search(myValue);
+              //}
+
             });
-
-          ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
-            console.log("鼠标放在下拉列表上的事件");
-            var str = "";
-            var _value = e.fromitem.value;
-            var value = "";
-            if (e.fromitem.index > -1) {
-              value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-            }
-            str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
-
-            value = "";
-            if (e.toitem.index > -1) {
-              _value = e.toitem.value;
-              value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-            }
-            str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-            G("searchResultPanel").innerHTML = str;
-            //scope.str = str;
           });
+        },
+        scope: {
+          resultData:"=selectvalue"
+        },
+        template: '<div style="display:inline-block;width:100%">' +
+        '<div id="r-result"><input type="text" id="{{suggestId}}" size="20" value="百度" placeholder="{{placeholder}}" ng-model="resultData" style="width:100%;" /></div>' +
+        '<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;z-index:9999" ng-bind-html="str | trustHtml"></div>' +
+        '</div>'
+      };
+    })
 
-          var myValue;
-          ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
-            console.log("鼠标点击下拉列表后的事件");
-            var _value = e.item.value;
-            myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-            G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-            //scope.str ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+    .directive("myMap",function(baiduMapApi){
+      return {
+        restrict: 'E',
+        replace: true,
+        link:     function link(scope, element, attrs){
 
-            setPlace();
-          });
+          scope.mapID = attrs.id;
+          scope.city = "";
 
-          function setPlace(){
-            map.clearOverlays();    //清除地图上所有覆盖物
-            function myFun(){
-              var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
-              map.centerAndZoom(pp, 18);
-              map.addOverlay(new BMap.Marker(pp));    //添加标注
-            }
-            var local = new BMap.LocalSearch(map, { //智能搜索
-              onSearchComplete: myFun
+          baiduMapApi.then(function(BMap) {
+            var localCity = new BMap.LocalCity();
+
+            localCity.get(function(msg){    // msg.name为当前城市的名称
+
+              scope.city = msg.name;
+              var map = new BMap.Map(scope.mapID);
+              map.centerAndZoom(msg.name,12);                   // 初始化地图,设置城市和地图级别。
             });
-            local.search(myValue);
-          }
-
-        });
-      },
-      scope: true,
-      template: '<div><div id="l-map"></div>' +
-      '<div id="r-result">请输入:<input type="text" id="suggestId" size="20" value="百度" style="width:100%;" /></div>' +
-      '<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;z-index:9999"></div>' +
-      '</div>'
-    };
-
+          });
+        },
+        scope: {
+          city:"=city"
+        },
+        template: '<div>' +
+        '<div id="{{mapID}}" style="height: 180px;"></div>' +
+        '</div>'
+      };
   });
 
   return directives;

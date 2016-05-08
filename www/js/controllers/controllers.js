@@ -6,6 +6,7 @@ define(function(require){
   //controllers.controller('controller名字',require(对应的文件地址));
   //controllers.controller('MainCtrl',require('controllers/MainCtrl'));
   controllers.controller('CargoCtrl',require('controllers/CargoCtrl'));
+  controllers.controller('CargoDetailCtrl',require('controllers/CargoDetailCtrl'));
   controllers.controller('LorryCtrl',require('controllers/LorryCtrl'));
   controllers.controller('LorryInfoCtrl',require('controllers/LorryInfoCtrl'));
   controllers.controller('OrderCtrl',require('controllers/OrderCtrl'));

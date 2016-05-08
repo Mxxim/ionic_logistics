@@ -18,6 +18,8 @@ angular.module('starter.config',[])
           signin:'/user/signin',
           signup:'/user/signup',
           authentication:'/user/authentication',
-          getById:'/user/getById'
+          getById:'/user/getById',
+          getList:'/cargo/getList',
+          getCargoById:'/cargo/getById'
         }
     })
