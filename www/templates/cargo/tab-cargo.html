@@ -16,15 +16,22 @@
     <!-- 定位地图end -->
     <!-- 货源列表start -->
     <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
-    <ion-list>
+    <div class="row" ng-if="!city">
+      <div class="col text-center padding" style="color: #a3a3a3;"><ion-spinner icon="ios"></ion-spinner>正在定位中...<br>若长时间没有跳转，请检查您的网络连接！</div>
+    </div>
+    <div class="row" ng-if="city && cargo.cargos.length == 0">
+      <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>当前{{city}}没有货源哦！<br>尝试搜索其他地区的货源吧...</div>
+    </div>
+    <ion-list ng-if="city && cargo.cargos.length != 0">
+    <!--<ion-list>-->
       <ion-item class="item-remove-animate item-avatar item-icon-right"
                 ng-repeat="cargo in cargo.cargos | filter:{from:city}"
                 href="#/menu/tabs/cargo/{{cargo._id}}">
         <img src="{{api}}{{cargo.user.userImage}}">
-        <p class="item_name">{{cargo.user.username}}</p>
+        <p class="item_name">{{cargo.user.realName}}</p>
         <div style="margin-bottom:5px"><i class="iconfont assertive" style="font-size:1.6rem;">
-          &#xe60a;</i><span>{{cargo.from}}</span></div>
-        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span>{{cargo.to}}</span></div>
+          &#xe60a;</i><span class="text_ellipsis" style="display: inline-block;width:100%">{{cargo.from}}</span></div>
+        <div><i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i><span class="text_ellipsis" style="display: inline-block;width:100%">{{cargo.to}}</span></div>
         <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;{{cargo.dateTime}}
         </p>
         <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60f;</i>&nbsp;{{cargo.name}}&nbsp;{{cargo.load}}吨&emsp;要&nbsp;{{cargo.lorryLength}}米&nbsp;{{cargo.lorryType}}

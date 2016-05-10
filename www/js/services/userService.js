@@ -21,8 +21,6 @@ define([],function(){
        */
     function login(username,password,type){
       return $q(function(resolve,reject){
-
-
         if(username == "" || password == ""){
           reject({message:"不能为空"});
         }else{
@@ -52,7 +50,6 @@ define([],function(){
        */
     function signup(user){
       return $q(function(resolve,reject){
-
         if(user.username == "" || user.password == "" || user.re_password == "" || user.realName == ""){
           reject({message:"不能为空"});
         }else if(user.password != user.re_password){

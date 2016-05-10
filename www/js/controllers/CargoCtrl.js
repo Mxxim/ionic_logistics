@@ -27,12 +27,14 @@ define([],function(){
 
 
     $rootScope.hideTabs = ' ';
-    $rootScope.api = ENV.api;
 
-    var us = storageService.get(storageKey);
-    if(us != undefined){
-      $rootScope.userInfo =us;
-    }
+    //var us = storageService.get(storageKey);
+    //if(us != undefined){
+    //  $rootScope.isLogin = true;
+    //  $rootScope.userInfo =us;
+    //}else{
+    //  $rootScope.isLogin = false
+    //}
 
     //_this.address = {
     //  city:"",
@@ -221,7 +223,6 @@ define([],function(){
 
     // 获取货源列表
     cargoService.getList().then(function(res){
-      console.log(res);
       if(res.code == 1){
         _this.cargos = res.cargos;
       }else{

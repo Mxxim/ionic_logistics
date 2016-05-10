@@ -14,6 +14,11 @@ define([],function(){
   'use strict';
   function userCtrl($scope,$ionicLoading,$state,$ionicActionSheet,$rootScope,$cordovaFileTransfer,storageService,userService,ENV){
 
+    console.log("---------------enter userCtrl-------------------");
+    $scope.$on('$destroy',function(){
+      console.log("---------------userCtrl销毁-------------------");
+    })
+
     var _this =this;
     var storageKey = "driver";
 
@@ -24,12 +29,6 @@ define([],function(){
       re_password:"",
       type:""
     };
-
-    // 调试——控制台输出
-    console.log("------enter userCtrl-------");
-    $scope.$on('$destroy',function(){
-      console.log("------userCtrl销毁页面-------");
-    });
 
 
     // 用户登录
@@ -45,7 +44,8 @@ define([],function(){
             });
           }else{
             storageService.set(storageKey,res.user);
-            $rootScope.userInfo = storageService.get(storageKey);
+            $rootScope.userInfo = res.user;
+            $rootScope.isLogin = true;
             $state.go('menu.tabs.cargo');  //路由跳转
           }
 
@@ -91,7 +91,7 @@ define([],function(){
               duration: 1500
             });
           }else{
-            $state.go('menu.login');  //路由跳转
+            $state.go('menu.tabs.login');  //路由跳转
           }
 
         },function(res){

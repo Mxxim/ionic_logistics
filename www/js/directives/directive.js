@@ -259,7 +259,7 @@ console.log(attr);
         restrict: 'E',
         replace: true,
         link:     function link(scope, element, attrs){
-
+          console.log("----------------------myMap指令-----------------------------");
           scope.mapID = attrs.id;
           scope.city = "";
 

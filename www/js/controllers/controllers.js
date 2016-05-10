@@ -8,6 +8,7 @@ define(function(require){
   controllers.controller('CargoCtrl',require('controllers/CargoCtrl'));
   controllers.controller('CargoDetailCtrl',require('controllers/CargoDetailCtrl'));
   controllers.controller('LorryCtrl',require('controllers/LorryCtrl'));
+  controllers.controller('LorryAddCtrl',require('controllers/LorryAddCtrl'));
   controllers.controller('LorryInfoCtrl',require('controllers/LorryInfoCtrl'));
   controllers.controller('OrderCtrl',require('controllers/OrderCtrl'));
   controllers.controller('UserCtrl',require('controllers/UserCtrl'));

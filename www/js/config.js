@@ -10,7 +10,7 @@ angular.module('starter.config',[])
         "debug" : false,
         "api": "http://192.168.31.156:3000",
         //"api": "http://172.20.10.5:3000",
-        'siteUrl':"http://www.phonegap100.com",
+        //'siteUrl':"http://www.phonegap100.com",
         //'imgUrl':"http://www.phonegap100.com/data/attachment/",
         'imgUrl':"http://192.168.31.156:3000/data/image/",
         'version':'1.0.1',
@@ -20,6 +20,8 @@ angular.module('starter.config',[])
           authentication:'/user/authentication',
           getById:'/user/getById',
           getList:'/cargo/getList',
-          getCargoById:'/cargo/getById'
+          getCargoById:'/cargo/getById',
+          addLorry:'/lorry/add',
+          getLorryList:'/lorry/getList'
         }
     })

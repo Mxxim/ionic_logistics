@@ -16,7 +16,7 @@ define([
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
-  function run($ionicPlatform) {
+  function run($ionicPlatform,$rootScope,$state,storageService,ENV) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -29,6 +29,22 @@ define([
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+      var needLoginView = ["menu.tabs.order","menu.tabs.lorry","menu.tabs.message"];//需要登录的页面state
+      var us = storageService.get("driver");
+      if(us != undefined){
+        $rootScope.isLogin = true;
+        $rootScope.userInfo =us;
+      }else{
+        $rootScope.isLogin = false
+      }
+      $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams, options){
+        if(needLoginView.indexOf(toState.name)>=0 && !$rootScope.isLogin){//判断当前是否登录
+          $state.go("menu.tabs.login");//跳转到登录页
+          event.preventDefault(); //阻止默认事件，即原本页面的加载
+        }
+      })
+      $rootScope.api = ENV.api;
+
     });
   }
 
@@ -177,33 +193,33 @@ define([
           }
         }
       })
-      //.state('menu.orderDetail', {
-      //  url: '/1',
+
+      //.state('menu.lorry', {
+      //  url: '/lorry',
       //  views: {
       //    'menuContent': {
-      //      templateUrl: 'templates/order/orderDetail.html',
-      //      controller:'OrderCtrl',
-      //      controllerAs:'order'
+      //      templateUrl: 'templates/lorry/myLorry.html',
+      //      controller:'LorryCtrl',
+      //      controllerAs:'lorry'
       //    }
       //  }
       //})
-
-      .state('menu.lorry', {
+      .state('menu.tabs.lorry', {
         url: '/lorry',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/lorry/myLorry.html',
             controller:'LorryCtrl',
             controllerAs:'lorry'
           }
         }
       })
-      .state('menu.addLorry', {
+      .state('menu.tabs.addLorry', {
         url: '/addLorry',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/lorry/addLorry.html',
-            controller:'LorryCtrl',
+            controller:'LorryAddCtrl',
             controllerAs:'lorry'
           }
         }
@@ -243,40 +259,40 @@ define([
         }
       })
 
-      .state('menu.login', {
+      .state('menu.tabs.login', {
         url: '/login',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/user/login.html',
             controller:'UserCtrl',
             controllerAs:'user'
           }
         }
       })
-      .state('menu.register', {
+      .state('menu.tabs.register', {
         url: '/register',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/user/register.html',
             controller:'UserCtrl',
             controllerAs:'user'
           }
         }
       })
-      .state('menu.authentication', {
+      .state('menu.tabs.authentication', {
         url: '/authentication',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/user/authentication.html',
             controller:'UserCtrl',
             controllerAs:'user'
           }
         }
       })
-      .state('menu.settings', {
+      .state('menu.tabs.settings', {
         url: '/settings',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/user/settings.html',
             controller:'UserCtrl',
             controllerAs:'user' // 控制器与$scope绑定，在页面中不再使用{{someObject}} ，而是用{{cargo.someObject}},控制器内用this代替$scope

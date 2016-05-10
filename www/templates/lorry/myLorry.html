@@ -1,9 +1,9 @@
-<ion-view view-title="我的车辆">
+<ion-view view-title="我的车辆" cache-view="false" hide-tabs>
 
   <ion-nav-title>我的车辆</ion-nav-title>
-  <ion-nav-buttons side="left">
-    <button class="button  back-button button-icon ion-ios-arrow-back button-clear" ng-click="$ionicGoBack()"></button>
-  </ion-nav-buttons>
+  <!--<ion-nav-buttons side="left">-->
+    <!--<button class="button  back-button button-icon ion-ios-arrow-back button-clear" ng-click="$ionicGoBack()"></button>-->
+  <!--</ion-nav-buttons>-->
   <ion-nav-buttons side="right">
     <!--<button class="button  button-icon ion-ios-plus-outline button-clear" ng-click="showPublishModal()">   &lt;!&ndash; 使按钮点击可以弹出左侧边栏 &ndash;&gt;-->
     <button class="button  button-icon ion-ios-plus-outline button-clear" ng-click="lorry.toAdd()">
@@ -11,21 +11,18 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <ion-list>
-      <ion-item class="item-thumbnail-left item-icon-right">
-        <img src="../www/img/lorry.jpg">
-        <h2 class="title">粤A5377&emsp;平板车</h2>
-        <p>17.5米&nbsp;载重50吨&emsp;15m</p>
+    <div class="row" ng-if="lorry.lorrys.length == 0">
+      <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>您当前没有添加的车辆，快去添加吧！</div>
+    </div>
+    <ion-list ng-if="lorry.lorrys.length != 0">
+      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="lorry in lorry.lorrys">
+        <img src="{{api}}{{lorry.frontImg}}">
+        <h2 class="title">{{lorry.number}}&emsp;{{lorry.lorryType}}</h2>
+        <p>{{lorry.lorryLength}}米&nbsp;载重{{lorry.load}}吨&emsp;<span ng-if="lorry.space != ''">{{lorry.space}}平方米</span></p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-        <ion-option-button class="button-assertive" ng-click="">
-          删除
+        <ion-option-button class="button-balanced" ng-click="">
+          发布空车
         </ion-option-button>
-      </ion-item>
-      <ion-item class="item-thumbnail-left item-icon-right">
-        <img src="../www/img/lorry.jpg">
-        <h2 class="title">粤A5377&emsp;平板车</h2>
-        <p>17.5米&nbsp;载重50吨&emsp;15m</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-assertive" ng-click="">
           删除
         </ion-option-button>

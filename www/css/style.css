@@ -371,7 +371,52 @@
   color:#EF473A;
 }
 .button.button_bottom{
-  position: absolute;bottom: 0;margin-bottom:0;width:100%;
+  border-radius:60px;
+  position: absolute;
+  /*bottom:6%;*/
+  right:15px;
+}
+.button.button_bottom{
+  animation:mymove 5s infinite;
+  -moz-animation:mymove 5s infinite; /* Firefox */
+  -webkit-animation:mymove 5s infinite; /* Safari and Chrome */
+  -o-animation:mymove 5s infinite; /* Opera */
+}
+
+@keyframes mymove
+{
+  0%   {bottom:6%;}
+  25%  {bottom:10%;}
+  50%  {bottom:8%;}
+  75%  {bottom:10%;}
+  100% {bottom:6%;}
+}
+
+@-moz-keyframes mymove /* Firefox */
+{
+  0%   {bottom:6%;}
+  25%  {bottom:10%;}
+  50%  {bottom:8%;}
+  75%  {bottom:10%;}
+  100% {bottom:6%;}
+}
+
+@-webkit-keyframes mymove /* Safari and Chrome */
+{
+  0%   {bottom:6%;}
+  25%  {bottom:10%;}
+  50%  {bottom:8%;}
+  75%  {bottom:10%;}
+  100% {bottom:6%;}
+}
+
+@-o-keyframes mymove /* Opera */
+{
+  0%   {bottom:6%;}
+  25%  {bottom:10%;}
+  50%  {bottom:8%;}
+  75%  {bottom:10%;}
+  100% {bottom:6%;}
 }
 /* 表单 */
 .item-floating-label .input-label.has-input{
