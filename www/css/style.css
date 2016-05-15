@@ -46,7 +46,7 @@
 
 .timeline {
   position: relative;
-  margin: 15px 0 0 0;
+  /*margin: 15px 0 0 0;*/
 }
 
 .timeline:before {
@@ -98,6 +98,7 @@
 .divider-title {
   background: #e4e4e4;
   padding: 5px 15px;
+  margin:10px 0;
 }
 /*自定义*/
 .timeline-text{
@@ -320,7 +321,7 @@
   margin: 0 10px;font-size:0.85rem;color:#9C9898;
 }
 .order_list .item_detail{
-  border-top: 1px solid #dddddd;display: flex;flex-direction: row-reverse;padding: 15px 10px;
+  border-top: 1px solid #dddddd;display: flex;flex-direction: row-reverse;padding: 15px 10px;justify-content: space-between
 }
 .order_list .item_detail.padding{
   border-top:none;
@@ -593,4 +594,19 @@
 }
 .user_auth .item .auth_img img{
   height:100px;max-width:90%;min-width:100px;
+}
+/* 我的货源 */
+.lInfo_img_wrap{
+  display: flex;flex-direction: column;position: absolute;top:10px;left:10px;max-width: 80px;max-height:80px;width: 100%;height: 100%;text-align: center;
+}
+.lInfo_img_wrap img{
+  width: 100%;height: 100%
+}
+
+/* 我的车源 */
+.info_list .item-content{
+  padding-right:5px;
+}
+.info_list_item{
+  margin-bottom:5px;display:flex;flex-direction: row;white-space: normal;padding-right:5px;
 }

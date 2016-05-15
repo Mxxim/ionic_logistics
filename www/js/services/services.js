@@ -6,5 +6,6 @@ define(function(require){
   services.factory('cargoService',require('services/cargoService'));
   services.factory('LorryService',require('services/LorryService'));
   services.factory('userService',require('services/userService'));
+  services.factory('orderService',require('services/orderService'));
   return services;
 });

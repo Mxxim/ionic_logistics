@@ -11,25 +11,29 @@
   <ion-content class="bg-e4 has-header">
     <form>
       <div class="list add_form">
-        <div class="item" select-click>
-          <span class="input-label" style="width:auto;display: inline"><i class="icon ion-ios-location balanced"></i></span>
-          <span ng-click="unfold()">
-            <span ng-if="cityFrom.Province === ''" class="add_def">从哪里出发</span>
-          <span ng-if="cityFrom.Province != ''">
-            {{cityFrom.Province}} {{cityFrom.City}} {{cityFrom.County}}
+        <div class="item">
+          <span class="input-label" style="width:auto;display: inline">
+            <i class="icon ion-ios-location balanced"></i>
           </span>
-          </span>
-          <select-city selectvalue='cityFrom' ng-show="open"></select-city>
+          <search-addr selectvalue="$parent.from" placeholder="从哪里出发" suggestid="from"></search-addr>
+          <!--<span ng-click="unfold()">-->
+            <!--<span ng-if="cityFrom.Province === ''" class="add_def">从哪里出发</span>-->
+          <!--<span ng-if="cityFrom.Province != ''">-->
+            <!--{{cityFrom.Province}} {{cityFrom.City}} {{cityFrom.County}}-->
+          <!--</span>-->
+          <!--</span>-->
+          <!--<select-city selectvalue='cityFrom' ng-show="open"></select-city>-->
         </div>
-        <div class="item" select-click>
+        <div class="item">
           <span class="input-label" style="width:auto;display: inline"><i class="icon ion-ios-location assertive"></i></span>
-          <span ng-click="unfold()">
-            <span ng-if="cityTo.Province === ''" class="add_def">到哪里去</span>
-          <span ng-if="cityTo.Province != ''">
-            {{cityTo.Province}} {{cityTo.City}} {{cityTo.County}}
-          </span>
-          </span>
-          <select-city selectvalue='cityTo' ng-show="open"></select-city>
+          <search-addr selectvalue="$parent.to" placeholder="到哪里去" suggestid="to"></search-addr>
+          <!--<span ng-click="unfold()">-->
+            <!--<span ng-if="cityTo.Province === ''" class="add_def">到哪里去</span>-->
+          <!--<span ng-if="cityTo.Province != ''">-->
+            <!--{{cityTo.Province}} {{cityTo.City}} {{cityTo.County}}-->
+          <!--</span>-->
+          <!--</span>-->
+          <!--<select-city selectvalue='cityTo' ng-show="open"></select-city>-->
         </div>
         <div class="item">
           <span class="input-label" style="width:auto;display: inline"><i class="icon ion-clock"></i></span>
@@ -39,18 +43,18 @@
           <!--</span>-->
           <select-date selectvalue='dateTo'></select-date>
         </div>
-        <div class="item" ng-click="lorryInfo.showPublishModal()">
+        <div class="item" ng-click="lorryInfoAdd.showPublishModal()">
           <span class="input-label" style="width:auto;display: inline"><i class="iconfont">&#xe602;</i></span>
-          <span class="add_def">您的车辆</span>
+          <span class="add_def">{{lorryInfoAdd.lorryName}}</span>
         </div>
         <label class="item item-input">
           <span class="input-label" style="width:auto"><i class="icon ion-chatbox-working positive"></i></span>
-          <input type="text" placeholder="给货主捎句话">
+          <input type="text" placeholder="给货主捎句话" ng-model="lorryInfoAdd.lorryInfo.text">
         </label>
       </div>
     </form>
     <div class="padding">
-      <button class="button button-block button-positive" ng-click="">提交</button>
+      <button class="button button-block button-positive" ng-click="lorryInfoAdd.addInfo(from,to,dateTo,lorryInfoAdd)">提交</button>
     </div>
   </ion-content>
 </ion-view>

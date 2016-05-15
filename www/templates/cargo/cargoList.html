@@ -1,31 +1,28 @@
-<ion-view view-title="找货源">
+<ion-view view-title="货源列表">
   <ion-nav-title>
-    <!--<i class="ion-ios-location assertive"></i>&nbsp;-->
-    <!--<span ng-if="city">{{city}}</span>-->
-    <!--<span ng-if="!city">未定位成功</span>-->
-    找货源
+    货源列表
   </ion-nav-title>
   <ion-nav-buttons side="right">
-      <a ui-sref="menu.tabs.cargoSearch">
-        <button class="button button-icon icon ion-ios-search"></button>
-      </a>
+    <a ui-sref="menu.tabs.list">
+      <button class="button button-icon icon ion-ios-search"></button>
+    </a>
   </ion-nav-buttons>
   <ion-content style="z-index:1">
-    <!-- 定位地图start -->
-    <my-map id="mymap" city="city"></my-map>
-    <!-- 定位地图end -->
     <!-- 货源列表start -->
     <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
-    <div class="row" ng-if="!city">
-      <div class="col text-center padding" style="color: #a3a3a3;"><ion-spinner icon="ios"></ion-spinner>正在定位中...<br>若长时间没有跳转，请检查您的网络连接！</div>
+    <!--<div class="row" ng-if="list.cargos.length == 0">-->
+      <!--<div class="col text-center padding" style="color: #a3a3a3;"><ion-spinner icon="ios"></ion-spinner>正在加载中...<br>若长时间没有跳转，请检查您的网络连接！</div>-->
+    <!--</div>-->
+    <div class="row" ng-if="list.showloading">
+        <div class="col text-center padding" style="color: #a3a3a3;"><ion-spinner icon="ios"></ion-spinner>正在加载中.....</div>
     </div>
-    <div class="row" ng-if="city && cargo.cargos.length == 0">
-      <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>当前{{city}}没有货源哦！<br>尝试搜索其他地区的货源吧...</div>
+    <div class="row" ng-if="!list.showloading && list.cargos.length == 0">
+      <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>没有找到货源哦！<br>尝试搜索其他地区的货源吧...</div>
     </div>
-    <ion-list ng-if="city && cargo.cargos.length != 0">
-    <!--<ion-list>-->
+    <ion-list ng-if="!list.showloading && list.cargos.length != 0">
+      <!--<ion-list>-->
       <ion-item class="item-remove-animate item-avatar item-icon-right"
-                ng-repeat="cargo in cargo.cargos | filter:{from:city}"
+                ng-repeat="cargo in list.cargos"
                 href="#/menu/tabs/cargo/{{cargo._id}}">
         <img src="{{api}}{{cargo.user.userImage}}">
         <p class="item_name">{{cargo.user.realName}}</p>

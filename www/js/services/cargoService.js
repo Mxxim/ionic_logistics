@@ -37,10 +37,22 @@ define([],function(){
       });
     };
 
+    var query = function(condition){
+      return $q(function(resolve,reject){
+        $resource(ENV.api+ENV.interface.getCargoByCon, {}, {
+          getAll: {
+            method: 'post'
+          }
+        }).getAll(condition,function(res){
+          resolve(res);
+        });
+      });
+    };
 
     return{
       getList:getList,
-      getById:getById
+      getById:getById,
+      query:query
     }
   }
 

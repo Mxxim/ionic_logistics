@@ -21,7 +21,12 @@ angular.module('starter.config',[])
           getById:'/user/getById',
           getList:'/cargo/getList',
           getCargoById:'/cargo/getById',
+          getCargoByCon:"/cargo/query",
           addLorry:'/lorry/add',
-          getLorryList:'/lorry/getList'
+          getLorryList:'/lorry/getList',
+          addLorryInfo:"/lorryInfo/add",
+          getLorryInfoList:"/lorryInfo/getList",
+          addOrder:"/order/add",
+          getOrderList:"/order/getList"
         }
     })

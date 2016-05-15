@@ -5764,6 +5764,15 @@ define(function(){
             }
           }
 
+
+          if(month > 0 && month <=9){
+            month = "0"+month;
+          }
+          if(day > 0 && day <=9){
+            day = "0"+day;
+          }
+
+
           var theDate = {
             year:year,
             month:month,

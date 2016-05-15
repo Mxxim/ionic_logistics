@@ -30,27 +30,15 @@
 
   <ion-content class="has-header">
     <div class="list list-inset search_list">
-      <div class="item" select-click>
+      <div class="item">
         <i class="iconfont balanced"> &#xe60a;&nbsp;</i>
-        <span ng-click="unfold()" class="add_def">
-          <span ng-if="cityFrom.Province === ''">输入出发地</span>
-           <span ng-if="cityFrom.Province != ''">
-            {{cityFrom.Province}} {{cityFrom.City}} {{cityFrom.County}}
-          </span>
-        </span>
-          <select-city selectvalue='cityFrom' ng-show="open"></select-city>
+        <search-addr selectvalue="$parent.from" placeholder="输入出发地" suggestid="from"></search-addr>
 
       </div>
       <!--<select-city selectvalue='cityFrom'></select-city>-->
-      <div class="item" select-click>
+      <div class="item">
         <i class="iconfont assertive">&#xe60b;&nbsp;</i>
-        <span ng-click="unfold()" class="add_def">
-          <span ng-if="cityTo.Province === ''">输入目的地</span>
-          <span ng-if="cityTo.Province != ''">
-            {{cityTo.Province}} {{cityTo.City}} {{cityTo.County}}
-          </span>
-        </span>
-        <select-city selectvalue='cityTo' ng-show="open"></select-city>
+        <search-addr selectvalue="$parent.to" placeholder="输入目的地" suggestid="to"></search-addr>
       </div>
       <div class="item">
         <i class="ion-ios-clock positive"></i>&nbsp;
@@ -59,32 +47,24 @@
       <div class="item">
         <i class="iconfont calm">&#xe608;&nbsp;</i>
         <div style="display:inline-block">
-          <select id="sel_type" class="add_def">
-            <option selected value="">
-              选择车辆类型
-            </option>
-            <option value="">
-              平板车
-            </option>
+          <select id="sel_type" class="add_def" ng-model="cargoSearch.condition.lorryType">
+            <option selected value="">选择车辆类型</option>
+            <option value="{{type}}" ng-repeat="type in cargoSearch.lorryType">{{type}}</option>
           </select>
         </div>
       </div>
       <div class="item">
         <i class="iconfont positive">&#xe608;&nbsp;</i>
         <div style="display:inline-block">
-          <select id="sel_len" class="add_def">
-            <option selected value="">
-              选择车辆长度
-            </option>
-            <option value="">
-              平板车
-            </option>
+          <select id="sel_len" class="add_def" ng-model="cargoSearch.condition.lorryLength">
+            <option selected value="">选择车辆长度</option>
+            <option value="{{len}}" ng-repeat="len in cargoSearch.lorryLength">{{len}}</option>
           </select>
         </div>
       </div>
     </div>
     <div class="padding">
-      <button class="button button-block button-positive">搜索货源</button>
+      <button class="button button-block button-positive" ng-click="cargoSearch.search(from,to,dateTo)">搜索货源</button>
     </div>
   </ion-content>
 </ion-view>

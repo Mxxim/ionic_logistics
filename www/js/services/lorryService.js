@@ -82,6 +82,36 @@ define([],function(){
       });
     }
 
+    var addLorryInfo = function(lorryInfo){
+      return $q(function(resolve,reject){
+        if(lorryInfo.from == "" || lorryInfo.to == "" || lorryInfo.dateTime == "" || lorryInfo.lorryID == "" ){
+          reject({message:"不能为空"});
+        }else{
+          $resource(ENV.api+ENV.interface.addLorryInfo,{},{
+            save : {
+              method:"POST"
+            }
+          }).save(lorryInfo, function(response) {
+            resolve(response);
+          });
+        }
+      });
+    }
+
+    var getLorryInfoList = function(uid){
+      return $q(function(resolve,reject){
+        $resource(ENV.api+ENV.interface.getLorryInfoList,{},{
+          getAll : {
+            method:"POST"
+          }
+        }).getAll({
+          userID:uid
+        }, function(response) {
+          resolve(response);
+        });
+      });
+    }
+
     //function saveFromCamera(){
     //  return $q(function(resolve,reject){
     //    var theImage;
@@ -154,7 +184,9 @@ define([],function(){
         //saveFromLib:saveFromLib
         saveImage:saveImage,
         addLorry:addLorry,
-        getList:getList
+        getList:getList,
+        addLorryInfo:addLorryInfo,
+        getLorryInfoList:getLorryInfoList
       };
 
   }

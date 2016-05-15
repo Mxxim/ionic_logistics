@@ -29,7 +29,8 @@ define([
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
-      var needLoginView = ["menu.tabs.order","menu.tabs.lorry","menu.tabs.message"];//需要登录的页面state
+      // 未登陆拦截
+      var needLoginView = ["menu.tabs.order","menu.tabs.lorry","menu.tabs.lorryInfo","menu.tabs.message"];//需要登录的页面state
       var us = storageService.get("driver");
       if(us != undefined){
         $rootScope.isLogin = true;
@@ -152,10 +153,22 @@ define([
         },
         views: {
           'tab-cargo': {
-            templateUrl: 'templates/cargo/cargoSearch.html'
-            //,
-            //controller: 'CargoCtrl',
-            //controllerAs: 'cargo',
+            templateUrl: 'templates/cargo/cargoSearch.html',
+            controller: 'CargoSearchCtrl',
+            controllerAs: 'cargoSearch'
+          }
+        }
+      })
+      .state('menu.tabs.cargoList', {
+        url: '/cargo/{query:json}',
+        views: {
+          'tab-cargo': {
+            templateUrl: 'templates/cargo/cargoList.html',
+            controller: 'CargoListCtrl',
+            controllerAs: 'list' ,
+            params: {
+              query: null
+            }
           }
         }
       })
@@ -225,10 +238,10 @@ define([
         }
       })
 
-      .state('menu.lorryInfo', {
+      .state('menu.tabs.lorryInfo', {
         url: '/lorryInfo',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/lorry/myLorryInfo.html',
             controller:'LorryInfoCtrl',
             controllerAs:'lorryInfo'
@@ -236,13 +249,13 @@ define([
         }
       })
 
-      .state('menu.addLorryInfo', {
+      .state('menu.tabs.addLorryInfo', {
         url: '/addLorryInfo',
         views: {
-          'menuContent': {
+          'tab-cargo': {
             templateUrl: 'templates/lorry/addLorryInfo.html',
-            controller:'LorryInfoCtrl',
-            controllerAs:'lorryInfo'
+            controller:'LorryInfoAddCtrl',
+            controllerAs:'lorryInfoAdd'
           }
         }
       })
