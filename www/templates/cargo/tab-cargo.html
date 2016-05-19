@@ -1,4 +1,4 @@
-<ion-view view-title="找货源">
+<ion-view view-title="找货源" cache-view="false">
   <ion-nav-title>
     <!--<i class="ion-ios-location assertive"></i>&nbsp;-->
     <!--<span ng-if="city">{{city}}</span>-->
@@ -15,7 +15,7 @@
     <my-map id="mymap" city="city"></my-map>
     <!-- 定位地图end -->
     <!-- 货源列表start -->
-    <ion-refresher on-refresh="doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
+    <ion-refresher on-refresh="cargo.doRefresh()" pulling-icon="ion-load-d" spinner="ios-small"></ion-refresher>
     <div class="row" ng-if="!city">
       <div class="col text-center padding" style="color: #a3a3a3;"><ion-spinner icon="ios"></ion-spinner>正在定位中...<br>若长时间没有跳转，请检查您的网络连接！</div>
     </div>

@@ -23,7 +23,7 @@ define([],function(){
       console.log("---------------cargoListCtrl销毁-------------------");
     });
 
-      cargoService.query($stateParams.query).then(function(res){
+      cargoService.query($stateParams.query,false).then(function(res){
         console.log(res);
         if(res.code == 1){
           timer = $timeout(

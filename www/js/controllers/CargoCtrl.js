@@ -221,20 +221,29 @@ define([],function(){
       //  console.log("error: "+e);
       //});
 
-    // 获取货源列表
-    cargoService.getList().then(function(res){
-      if(res.code == 1){
-        _this.cargos = res.cargos;
-      }else{
-        $ionicLoading.show({
-          noBackdrop: true,
-          template: res.message,
-          duration: 1500
-        });
-      }
-    },function(err){
-      console.log(err);
-    });
+    // 获取当前未交易的货源列表
+    _this.getList = function(){
+      cargoService.getList().then(function(res){
+        if(res.code == 1){
+          _this.cargos = res.cargos;
+        }else{
+          $ionicLoading.show({
+            noBackdrop: true,
+            template: res.message,
+            duration: 1500
+          });
+        }
+      },function(err){
+        console.log(err);
+      });
+    }
+
+    _this.doRefresh = function(){
+      _this.getList();
+      $scope.$broadcast("scroll.refreshComplete");
+    };
+
+    _this.getList();
 
     //_this.showPopup = function(obj){
     //

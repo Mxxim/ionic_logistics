@@ -46,6 +46,25 @@ define([
       })
       $rootScope.api = ENV.api;
 
+      //启动极光推送服务
+      window.plugins.jPushPlugin.init();
+      //调试模式
+      window.plugins.jPushPlugin.setDebugMode(true);
+      //接收消息并跳转相应的页面
+      window.plugins.jPushPlugin.openNotificationInAndroidCallback = function (data) {
+
+        try {
+          console.log("openNotificationInAndroidCallback");
+          data = JSON.stringify(data);
+          var bToObj = JSON.parse(data);
+          var id = bToObj.extras['cn.jpush.android.EXTRA'].cid;
+          $state.go('menu.tabs.cargoDetail', {cid: id});
+          console.log("id = "+id);
+        } catch(exception) {
+          console.log(exception);
+        }
+      }
+
     });
   }
 
