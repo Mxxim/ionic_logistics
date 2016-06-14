@@ -42,9 +42,9 @@
 ngCordova官网地址：<http://ngcordova.com/>
 ###调用手机相机、上传文件插件
 >// 相机、文件插件<br/>
->ionic plugin add cordova-plugin-camera
->ionic plugin add cordova-plugin-file
->ionic plugin add cordova-plugin-file-transfer
+>ionic plugin add cordova-plugin-camera<br/>
+>ionic plugin add cordova-plugin-file<br/>
+>ionic plugin add cordova-plugin-file-transfer<br/>
 
 ###调用原生页面切换插件
 >// 在项目中调用原生页面切换插件<br/>
