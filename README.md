@@ -36,6 +36,14 @@
 >ionic platform add android
 
 其次，插件安装，
+>//ionic项目默认插件<br/>
+>ionic plugin add cordova-plugin-device<br/>
+>ionic plugin add cordova-plugin-splashscreen<br/>
+>ionic plugin add cordova-plugin-statusbar<br/>
+>ionic plugin add cordova-plugin-whitelist<br/>
+>ionic plugin add ionic-plugin-keyboard<br/>
+>ionic plugin add cordova-plugin-console<br/>
+
 ###ngCordova
 >// ngCordova<br/>
 >bower install ngCordova --save
