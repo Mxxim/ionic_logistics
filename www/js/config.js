@@ -8,8 +8,9 @@ angular.module('starter.config',[])
 
     .constant('ENV',{
         "debug" : false,
-        "api": "http://192.168.31.156:3000",
-        //"api": "http://172.20.10.5:3000",
+        //"api": "http://192.168.43.55:3000",
+        //"api": "http://10.8.210.28:3000",
+      "api": "http://172.20.10.5:3000",
         //'siteUrl':"http://www.phonegap100.com",
         //'imgUrl':"http://www.phonegap100.com/data/attachment/",
         'imgUrl':"http://192.168.31.156:3000/data/image/",
@@ -24,8 +25,10 @@ angular.module('starter.config',[])
           getCargoByCon:"/cargo/query",
           addLorry:'/lorry/add',
           getLorryList:'/lorry/getList',
+          deleteLorry:'/lorry/delete',
           addLorryInfo:"/lorryInfo/add",
           getLorryInfoList:"/lorryInfo/getList",
+          deleteLorryInfo:"/lorryInfo/delete",
           addOrder:"/order/add",
           getOrderList:"/order/getList"
         }

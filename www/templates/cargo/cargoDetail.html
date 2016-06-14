@@ -9,10 +9,10 @@
 
   <ion-content>
     <!-- 菊花加载 -->
-    <div class="isLoading" ng-if="showloading">
-      <ion-spinner icon="ios"></ion-spinner>
+    <div class="isLoading" ng-if="cargoDetail.showloading">
+      <ion-spinner icon="ios">加载中...</ion-spinner>
     </div>
-    <div ng-if="!showloading">
+    <div ng-if="!cargoDetail.showloading">
       <ion-list class="item_detail">
         <ion-item class="detail_addr text-center">
             <div class="cd_addr_wrap">

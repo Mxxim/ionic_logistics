@@ -23,6 +23,7 @@ define([],function(){
     _this.cargo = {};
     _this.lorrys = [];
     _this.selected = "";
+    _this.showloading = true;
 
 
     $rootScope.hideTabs = ' ';
@@ -32,6 +33,7 @@ define([],function(){
     // 根据ID得到该条货源详情
     cargoService.getById($stateParams.cid).then(function(res){
       if(res.code == 1){
+        _this.showloading = false;
         _this.cargo = res.cargo;
       }
     },function(err){

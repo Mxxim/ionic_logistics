@@ -112,6 +112,33 @@ define([],function(){
       });
     }
 
+    var deleteLorry = function(lid){
+      return $q(function(resolve,reject){
+        $resource(ENV.api+ENV.interface.deleteLorry,{},{
+          del : {
+            method:"POST"
+          }
+        }).del({
+          lid:lid
+        }, function(response) {
+          resolve(response);
+        });
+      });
+    }
+
+    var deleteLorryInfo = function(liid){
+      return $q(function(resolve,reject){
+        $resource(ENV.api+ENV.interface.deleteLorryInfo,{},{
+          del : {
+            method:"POST"
+          }
+        }).del({
+          liid:liid
+        }, function(response) {
+          resolve(response);
+        });
+      });
+    }
     //function saveFromCamera(){
     //  return $q(function(resolve,reject){
     //    var theImage;
@@ -186,7 +213,9 @@ define([],function(){
         addLorry:addLorry,
         getList:getList,
         addLorryInfo:addLorryInfo,
-        getLorryInfoList:getLorryInfoList
+        getLorryInfoList:getLorryInfoList,
+        deleteLorry:deleteLorry,
+        deleteLorryInfo:deleteLorryInfo
       };
 
   }

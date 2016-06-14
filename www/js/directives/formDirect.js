@@ -5809,6 +5809,7 @@ define(function(){
           '<select id="sel_date" ng-model="date_index" class="add_def" >' +
           '<option selected value="">选择可装车时间</option>' +
           '<option  value="{{$index}}" ng-repeat="item in aDate">{{item.year}}-{{item.month}}-{{item.day}}</option>' +
+          '<option  value="-1">不限日期</option>' +
           '</select>' +
           '</div>'
         }

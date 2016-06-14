@@ -267,10 +267,12 @@ console.log(attr);
             var localCity = new BMap.LocalCity();
 
             localCity.get(function(msg){    // msg.name为当前城市的名称
-
-              scope.city = msg.name;
+              console.log(msg);
+              //scope.city = msg.name;
+              scope.city = "湛江市";
               var map = new BMap.Map(scope.mapID);
-              map.centerAndZoom(msg.name,12);                   // 初始化地图,设置城市和地图级别。
+              //map.centerAndZoom(msg.name,12);                   // 初始化地图,设置城市和地图级别。
+              map.centerAndZoom("湛江市",12);                   // 初始化地图,设置城市和地图级别。
             });
           });
         },

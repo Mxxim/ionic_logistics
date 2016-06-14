@@ -11,23 +11,32 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="row" ng-if="lorry.lorrys.length == 0">
-      <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>您当前没有添加的车辆，快去添加吧！</div>
+    <div class="row" ng-if="lorry.showloading">
+      <div class="col text-center padding" style="color: #a3a3a3;">
+        <ion-spinner icon="ios"></ion-spinner>
+        正在加载中.....
+      </div>
     </div>
-    <ion-list ng-if="lorry.lorrys.length != 0">
-      <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="lorry in lorry.lorrys">
-        <img src="{{api}}{{lorry.frontImg}}">
-        <h2 class="title">{{lorry.number}}&emsp;{{lorry.lorryType}}</h2>
-        <p>{{lorry.lorryLength}}米&nbsp;载重{{lorry.load}}吨&emsp;<span ng-if="lorry.space != ''">{{lorry.space}}平方米</span></p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-        <ion-option-button class="button-balanced" ng-click="">
-          发布空车
-        </ion-option-button>
-        <ion-option-button class="button-assertive" ng-click="">
-          删除
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+    <div ng-if="!lorry.showloading">
+      <div class="row" ng-if="lorry.lorrys.length == 0">
+        <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont">&#xe61a;&nbsp;</i>您当前没有添加的车辆，快去添加吧！</div>
+      </div>
+      <ion-list ng-if="lorry.lorrys.length != 0">
+        <ion-item class="item-thumbnail-left item-icon-right" ng-repeat="item in lorry.lorrys">
+          <img src="{{api}}{{item.frontImg}}">
+          <h2 class="title">{{item.number}}&emsp;{{item.lorryType}}</h2>
+          <p>{{item.lorryLength}}米&nbsp;载重{{item.load}}吨&emsp;<span ng-if="item.space != ''">{{item.space}}平方米</span></p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          <ion-option-button class="button-balanced" ng-click="">
+            发布空车
+          </ion-option-button>
+          <ion-option-button class="button-assertive" ng-click="lorry.dele(item._id)">
+            删除
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+
   </ion-content>
 </ion-view>
 

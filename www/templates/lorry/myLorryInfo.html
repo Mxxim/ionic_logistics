@@ -8,31 +8,38 @@
   </ion-nav-buttons>
 
   <ion-content>
-    <div class="row" ng-if="lorryInfo.lorryInfos.length == 0">
-      <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont ">&#xe61a;&nbsp;</i>您当前没有发布车源，快去发布吧！</div>
+    <div class="row" ng-if="lorryInfo.showloading">
+      <div class="col text-center padding" style="color: #a3a3a3;"><ion-spinner icon="ios"></ion-spinner>正在加载中.....</div>
     </div>
-    <ion-list ng-if="lorryInfo.lorryInfos.length != 0">
-      <ion-item class="item-thumbnail-left info_list" ng-repeat="lorryInfo in lorryInfo.lorryInfos">
-        <div class="lInfo_img_wrap">
-          <img src="{{api}}{{lorryInfo.lorry.frontImg}}">
-          <div style="padding:3px;">{{lorryInfo.lorry.number}}</div>
-        </div>
+    <div ng-if="!lorryInfo.showloading">
+      <div class="row" ng-if="lorryInfo.lorryInfos.length == 0">
+        <div class="col text-center padding" style="color: #a3a3a3;"><i class="iconfont ">&#xe61a;&nbsp;</i>您当前没有发布车源，快去发布吧！</div>
+      </div>
+      <ion-list ng-if="lorryInfo.lorryInfos.length != 0">
+        <ion-item class="item-thumbnail-left info_list" ng-repeat="item in lorryInfo.lorryInfos">
+          <div class="lInfo_img_wrap">
+            <img src="{{api}}{{item.lorry.frontImg}}">
+            <div style="padding:3px;">{{item.lorry.number}}</div>
+          </div>
 
-        <div class="info_list_item">
-          <i class="iconfont assertive" style="font-size:1.6rem;">&#xe60a;</i>
-          <span>{{lorryInfo.from}}</span></div>
-        <div class="info_list_item">
-          <i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i>
-          <span>{{lorryInfo.to}}</span>
-        </div>
-        <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;{{lorryInfo.dateTime}}装
-        </p>
-        <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe602;</i>&nbsp;{{lorryInfo.lorry.lorryType}}&nbsp;{{lorryInfo.lorry.load}}吨&nbsp;{{lorryInfo.lorry.lorryLength}}米&nbsp;{{lorryInfo.lorry.space}}平方米
-        </p>
-        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
-        <ion-option-button class="button-assertive" ng-click="">
-          删除
-        </ion-option-button>
-      </ion-item>
+          <div class="info_list_item">
+            <i class="iconfont assertive" style="font-size:1.6rem;">&#xe60a;</i>
+            <span>{{item.from}}</span></div>
+          <div class="info_list_item">
+            <i class="iconfont royal" style="font-size:1.6rem;">&#xe60b;</i>
+            <span>{{item.to}}</span>
+          </div>
+          <p style="font-size:0.9rem;padding:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe60d;</i>&nbsp;{{item.dateTime}}装
+          </p>
+          <p style="font-size:0.9rem;padding-left:5px;"><i class="iconfont" style="font-size:1.2rem;">&#xe602;</i>&nbsp;{{item.lorry.lorryType}}&nbsp;{{item.lorry.load}}吨&nbsp;{{item.lorry.lorryLength}}米&nbsp;{{item.lorry.space}}平方米
+          </p>
+          <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+          <ion-option-button class="button-assertive" ng-click="lorryInfo.del(item._id)">
+            删除
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+
   </ion-content>
 </ion-view>

@@ -233,6 +233,7 @@ define([],function(){
             duration: 1500
           });
         }
+        $scope.$broadcast("scroll.refreshComplete");
       },function(err){
         console.log(err);
       });
@@ -240,7 +241,6 @@ define([],function(){
 
     _this.doRefresh = function(){
       _this.getList();
-      $scope.$broadcast("scroll.refreshComplete");
     };
 
     _this.getList();
