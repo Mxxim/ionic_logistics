@@ -36,25 +36,25 @@
 
 其次，插件安装，
 ###ngCordova
->// ngCordova
+>// ngCordova<br/>
 >bower install ngCordova --save
 
 ngCordova官网地址：<http://ngcordova.com/>
 ###调用手机相机、上传文件插件
->// 相机、文件插件
+>// 相机、文件插件<br/>
 >ionic plugin add cordova-plugin-camera
 >ionic plugin add cordova-plugin-file
 >ionic plugin add cordova-plugin-file-transfer
 
 ###调用原生页面切换插件
->// 在项目中调用原生页面切换插件
->ionic plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions#0.6.2
->// 如果是IOS还要添加
+>// 在项目中调用原生页面切换插件<br/>
+>ionic plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions#0.6.2<br/>
+>// 如果是IOS还要添加<br/>
 >ionic plugin add cordova-plugin-wkwebview
 
 原生页面切换插件GitHub地址：<https://github.com/shprink/ionic-native-transitions>
 ###~~百度地图定位插件(后来没用这个插件了)~~
->// 使用百度地图插件，后来自己修改了这个插件，修改内容后续内容会讲
+>// 使用百度地图插件，后来自己修改了这个插件，修改内容后续内容会讲<br/>
 >ionic plugin add https://github.com/mrwutong/cordova-qdc-baidu-location --variable API_KEY="API_KEY"
 
 API_KEY为你自己的key，详细教程参考[百度定位SDK][]。另外还需要在build.gradle上添加
@@ -66,7 +66,7 @@ sourceSets {
 ```
 
 ###极光推送插件
->// 极光推送插件
+>// 极光推送插件<br/>
 >cordova plugin add jpush-phonegap-plugin --variable API_KEY=your_jpush_appkey
 
 需要到[极光推送官网](https://www.jpush.cn/)注册一个账号，然后到自己的控制台创建一个应用，注意应用名称与项目名称一致，应用包名务必为你项目的包名（可以在config.xml中查看），创建成功后会生成一个appKey，使用这个appKey来安装极光推送插件。
