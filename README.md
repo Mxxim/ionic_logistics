@@ -2,9 +2,6 @@
 
 &emsp;本项目的需求还不是特别完整，并不是一个完成的项目，其主要目的还只是用于学习，适合给想用Ionic做项目的同学做参考。编码方面还有很多地方需要改善，如果您能献上宝贵的建议，不甚感激！
 
----------
-[TOC]
-
 ## 简介
 
 &emsp;本项目包括两个客户端，分别是车主端、货主端。服务端代码使用的是**Node.js**，**Express4**框架，数据库采用**MongoDB**，使用**Mongoose**来操作MongoDB数据库。
@@ -46,6 +43,7 @@ ngCordova官网地址：<http://ngcordova.com/>
 >ionic plugin add cordova-plugin-camera
 >ionic plugin add cordova-plugin-file
 >ionic plugin add cordova-plugin-file-transfer
+
 ###调用原生页面切换插件
 >// 在项目中调用原生页面切换插件
 >ionic plugin add https://github.com/Telerik-Verified-Plugins/NativePageTransitions#0.6.2
